@@ -1,0 +1,25 @@
+nav {
+  background: #01afed;
+  height: 5rem;
+}
+.nav-item a{
+  font-family: 'Raleway ExtraBold', sans-serif;
+  color: white;
+}
+.navbar-nav .nav-link {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 50px;
+  line-height: 50px;
+}
+#nav-logo {
+  height: 1.833rem;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.social-icons {
+  height: 1.5rem
+}
+textarea{
+  background-color:#1fb8ee !important;
+}
