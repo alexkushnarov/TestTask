@@ -15,6 +15,7 @@ import {
   CommentsService,
   FooterComponent,
   HeaderComponent,
+  ScorebarComponent,
   JwtService,
   ProfilesService,
   SharedModule,
@@ -28,7 +29,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    ScorebarComponent
   ],
   imports: [
     BrowserModule,
