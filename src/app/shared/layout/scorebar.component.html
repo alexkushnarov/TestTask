@@ -1,3 +1,8 @@
 <div id="scorebar-container">
-TESt!!
+  <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)">
+    <div ngxSlickItem *ngFor="let game of scorebar" class="slide">
+      {{ game.away_team_id }}
+    </div>
+  </ngx-slick>
+
 </div>

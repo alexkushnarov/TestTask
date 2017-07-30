@@ -6,8 +6,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { HomeModule } from './home/home.module';
+import { MlbModule } from './mlb/mlb.module';
+
 import { ProfileModule } from './profile/profile.module';
 import { SettingsModule } from './settings/settings.module';
+import { SlickModule } from 'ngx-slick';
+import { Logger } from 'angular2-logger/core';
 import {
   ApiService,
   ArticlesService,
@@ -19,7 +23,7 @@ import {
   JwtService,
   ProfilesService,
   SharedModule,
-  TagsService,
+  ScorebarService,
   UserService
 } from './shared';
 
@@ -40,7 +44,9 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     rootRouting,
     SharedModule,
     SettingsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    SlickModule.forRoot(),
+    MlbModule
   ],
   providers: [
     ApiService,
@@ -49,8 +55,9 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     CommentsService,
     JwtService,
     ProfilesService,
-    TagsService,
-    UserService
+    ScorebarService,
+    UserService,
+    Logger
   ],
   bootstrap: [AppComponent]
 })
