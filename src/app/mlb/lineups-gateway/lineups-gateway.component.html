@@ -1,0 +1,403 @@
+<!-- Starting Lineups Content -->
+<div class="lineups-gateway-content content">
+  <div class="page-wrap">
+    <!-- Starting Lineups Page Title -->
+    <div class="lineups-gateway-heading-wrap">
+      <h1 class="page-heading">MLB Starting Lineups</h1>
+    </div>
+    <!-- Starting Lineups Action Header -->
+    <div class="lineups-gateway-action-header">
+      <!-- Action Header Button Group -->
+      <div class="action-btn-group btn-group group-1">
+        <button (click)="onSportAction()" class="action-header-btn first" [ngClass]="{'active': sportActionActive}">Sport</button>
+        <button (click)="onBettingAction()" class="action-header-btn" [ngClass]="{'active': bettingActionActive}">Betting</button>
+        <button (click)="onFantasyAction()" class="action-header-btn last" [ngClass]="{'active': fantasyActionActive}">Fantasy</button>
+      </div>
+      <!-- Action Header Button Group -->
+      <div class="action-btn-group btn-group group-2">
+        <button (click)="onDraftKingsAction()" class="action-header-btn first" [ngClass]="{'active': draftKingsActionActive}">DraftKings</button>
+        <button (click)="onFanDuelAction()" class="action-header-btn" [ngClass]="{'active': fanDuelActionActive}">FanDuel</button>
+        <button (click)="onYahooAction()" class="action-header-btn last" [ngClass]="{'active': yahooActionActive}">Yahoo</button>
+      </div>
+      <!-- Action Header Button Group -->
+      <div class="action-btn-group btn-group group-3">
+        <button (click)="onAverageAction()" class="action-header-btn first" [ngClass]="{'active': averageActionActive}">Average</button>
+        <button (click)="onBasePredictionAction()" class="action-header-btn" [ngClass]="{'active': basePredictionActionActive}">Base Prediction</button>
+        <button (click)="onMlConsensusAction()" class="action-header-btn" [ngClass]="{'active': mlConsensusActionActive}">ML Consensus</button>
+        <button (click)="onLinearRegressionAction()" class="action-header-btn" [ngClass]="{'active': linearRegressionActionActive}">Linear Regression</button>
+        <button (click)="onBoostedRegressorAction()" class="action-header-btn" [ngClass]="{'active': boostedRegressorActionActive}">Boosted Regressor</button>
+        <button (click)="onRandomForestAction()" class="action-header-btn" [ngClass]="{'active': randomForestActionActive}">Random Forest</button>
+        <button (click)="onNaiveBayesAction()" class="action-header-btn last" [ngClass]="{'active': naiveBayesActionActive}">Naive Bayes</button>
+      </div>
+    </div>
+    <!-- Starting Lineups Results -->
+    <div class="lineups-gateway-results">
+      <!-- Starting Lineup Box Loader -->
+      <div *ngIf="lineups === undefined" class="starting-lineup-loader">
+        <img class="loader-image" src="/assets/images/Ripple.svg">
+      </div>
+      <!-- Starting Lineup Box - Repeated -->
+      <div *ngFor="let lineup of lineups; let i = index;" class="starting-lineup-wrapper">
+        <div class="starting-lineup-box" [ngClass]="{'right': i % 2 == 1, 'center': lineups.length === i + 1 && i % 2 == 0 }">
+          <!-- Starting Lineup Box Head -->
+          <div class="starting-lineup-box-head">
+            <div class="event-top-info">
+              <h2 class="event-time">{{lineup.date_time | date:'shortTime'}}</h2>
+              <h4 class="event-participants">{{lineup.away_team.full_name}} @ {{lineup.home_team.full_name}}</h4>
+              <h6 class="event-risk">{{lineup.rain}}% Rain, {{lineup.risk}}</h6>
+            </div>
+            <!-- Event Participants-->
+            <div class="event-top-participants">
+              <!-- Event Away Participant -->
+              <div class="event-away-participant">
+                <div class="away-participant-content">
+                  <h2 class="event-top-participant-name">{{lineup.away_team.full_name}}</h2>
+                  <h4 class="event-top-participant-standing">
+                    <span class="event-top-participant-record">{{lineup.away_team.wins}} - {{lineup.away_team.losses}},</span>
+                    <span class="event-top-participant-rank">
+                  <span *ngIf="lineup.away_team.division_rank === 1">{{lineup.away_team.division_rank}}st</span>
+                  <span *ngIf="lineup.away_team.division_rank === 2">{{lineup.away_team.division_rank}}nd</span>
+                  <span *ngIf="lineup.away_team.division_rank === 3">{{lineup.away_team.division_rank}}rd</span>
+                  <span *ngIf="lineup.away_team.division_rank > 3">{{lineup.away_team.division_rank}}th</span>
+                </span>
+                    {{lineup.away_team.league}} {{lineup.away_team.division}}
+                  </h4>
+                  <div class="participant-lineup-state">
+                    <div *ngIf="lineup.home_team.lineup_confirmed" class="confirmed-lineup">
+                      <p class="lineup-state confirmed"><img src="/assets/images/green-check.png" /> Confirmed</p>
+                    </div>
+                    <div *ngIf="!lineup.home_team.lineup_confirmed" class="projected-lineup">
+                      <p class="lineup-state projected"><img src="/assets/images/red-x.png" /> Projected</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="away-participant-logo event-participant-logo">
+                  <img class="event-top-logo" [src]="lineup.away_team.logo_url" />
+                </div>
+              </div>
+              <!-- Event Wind -->
+              <div class="event-wind mlb">
+                <!-- Event Wind Content -->
+                <div class="event-wind-content">
+                  <span class="wind-speed">{{lineup.forecast_wind_speed}} mph</span>
+                  <img class="wind-direction-arrow"
+                       [style.transform]="'rotate(' + lineup.forecast_wind_direction + 'deg)'"
+                       src="/assets/images/arrow.png" />
+                </div>
+                <!-- MLB Diamond Icon -->
+                <img class="mlb-diamond-icon" src="/assets/images/Baseball-Diamond-Icon.png" />
+              </div>
+              <!-- Event Home Participant -->
+              <div class="event-home-participant">
+                <div class="home-participant-logo event-participant-logo">
+                  <img class="event-top-logo" [src]="lineup.home_team.logo_url" />
+                </div>
+                <div class="home-participant-content">
+                  <h2 class="event-top-participant-name">{{lineup.home_team.full_name}}</h2>
+                  <h4 class="event-top-participant-standing">
+                    <span class="event-top-participant-record">{{lineup.home_team.wins}} - {{lineup.home_team.losses}},</span>
+                    <span class="event-top-participant-rank">
+                  <span *ngIf="lineup.home_team.division_rank === 1">{{lineup.home_team.division_rank}}st</span>
+                  <span *ngIf="lineup.home_team.division_rank === 2">{{lineup.home_team.division_rank}}nd</span>
+                  <span *ngIf="lineup.home_team.division_rank === 3">{{lineup.home_team.division_rank}}rd</span>
+                  <span *ngIf="lineup.home_team.division_rank > 3">{{lineup.home_team.division_rank}}th</span>
+                </span>
+                    {{lineup.home_team.league}} {{lineup.home_team.division}}
+                  </h4>
+                  <div class="participant-lineup-state">
+                    <div *ngIf="lineup.home_team.lineup_confirmed" class="confirmed-lineup">
+                      <p class="lineup-state confirmed"><img src="/assets/images/green-check.png" /> Confirmed</p>
+                    </div>
+                    <div *ngIf="!lineup.home_team.lineup_confirmed" class="projected-lineup">
+                      <p class="lineup-state projected"><img src="/assets/images/red-x.png" /> Projected</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Event Lineup Stats -->
+          <div class="event-mid-stats">
+            <!-- Away Hitters Stats (Left) -->
+            <div class="away-participant-stats">
+              <table class="table hitter-table">
+                <thead class="stats-head">
+                <tr>
+                  <th class="stat-align-left hitters-stat-col">Hitters</th>
+                  <th>Salary</th>
+                  <th>Proj</th>
+                  <th>Own</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Table Rows -->
+                <tr *ngFor="let hitter of lineup.away_team.hitters" class="lineups-gateway-table-row">
+                  <th class="hitter-data">
+                    <!-- TODO: Find out what the (R) / (S) field means from PSD -->
+                    <span class="hitter-text">
+                      {{hitter.batting_order}}. {{hitter.name}}, {{hitter.position}} (*)
+                    </span>
+                  </th>
+                  <td class="salary-stat-wrapper">
+                    <span class="salary-stat draft-kings-salary" [hidden]="!draftKingsActionActive">
+                      <span *ngIf="hitter.draft_kings_salary !== null">{{hitter.draft_kings_salary | currency:'USD':true:'4.0-0'}}</span>
+                      <span *ngIf="hitter.draft_kings_salary === null">N/A</span>
+                    </span>
+                    <span class="salary-stat fan-duel-salary" [hidden]="!fanDuelActionActive">
+                      <span *ngIf="hitter.fan_duel_salary !== null">{{hitter.fan_duel_salary | currency:'USD':true:'4.0-0'}}</span>
+                      <span *ngIf="hitter.fan_duel_salary === null">N/A</span>
+                    </span>
+                    <span class="salary-stat yahoo-salary" [hidden]="!yahooActionActive">
+                      <span *ngIf="hitter.yahoo_salary !== null">{{hitter.yahoo_salary | currency:'USD':true:'2.0-0'}}</span>
+                      <span *ngIf="hitter.yahoo_salary === null">N/A</span>
+                    </span>
+                  </td>
+                  <td class="points-stat-wrapper">
+                    <span class="points-stat draft-kings-points" [hidden]="!draftKingsActionActive">
+                      <span *ngIf="hitter.fantasy_points_draft_kings !== null">{{hitter.fantasy_points_draft_kings}} pts</span>
+                      <span *ngIf="hitter.fantasy_points_draft_kings === null">N/A</span>
+                    </span>
+                    <span class="points-stat fan-duel-points" [hidden]="!fanDuelActionActive">
+                      <span *ngIf="hitter.fantasy_points_fan_duel !== null">{{hitter.fantasy_points_fan_duel}} pts</span>
+                      <span *ngIf="hitter.fantasy_points_fan_duel === null">N/A</span>
+                    </span>
+                    <span class="points-stat yahoo-points" [hidden]="!yahooActionActive">
+                      <span *ngIf="hitter.fantasy_points_yahoo !== null">{{hitter.fantasy_points_yahoo}} pts</span>
+                      <span *ngIf="hitter.fantasy_points_yahoo === null">N/A</span>
+                    </span>
+                  </td>
+                  <td>
+                    <!-- TODO: Find out actual Own value-->
+                    <span class="own-perc-stat">00%</span>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <!-- Pitcher Table -->
+              <table class="table pitcher-table">
+                <thead class="stats-head">
+                <tr>
+                  <th class="stat-align-left hitters-stat-col">Pitchers</th>
+                  <th>Salary</th>
+                  <th>Proj</th>
+                  <th>Own</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Away Pitcher -->
+                <tr class="lineups-gateway-table-row">
+                  <th class="pitcher-data">
+                    <!-- TODO: Find out what the (R) / (S) field means from PSD -->
+                    <span class="pitcher-text">
+                      <span class="pitcher-name">{{lineup.away_team_starting_pitcher}}</span>
+                      <span class="pitcher-bat-hand">({{lineup.away_team.pitcher.bat_hand}})</span>,
+                      <span class="pitcher-win-loss-record">0-0</span>
+                    </span>
+                  </th>
+                  <td class="salary-stat-wrapper">
+                    <span class="salary-stat draft-kings-salary" [hidden]="!draftKingsActionActive">
+                      <span *ngIf="lineup.away_pitcher_fantasy.draft_kings_salary !== null">{{lineup.away_pitcher_fantasy.draft_kings_salary | currency:'USD':true:'4.0-0'}}</span>
+                      <span *ngIf="lineup.away_pitcher_fantasy.draft_kings_salary === null">N/A</span>
+                    </span>
+                    <span class="salary-stat fan-duel-salary" [hidden]="!fanDuelActionActive">
+                      <span *ngIf="lineup.away_pitcher_fantasy.fanduel_salary !== null">{{lineup.away_pitcher_fantasy.fanduel_salary | currency:'USD':true:'4.0-0'}}</span>
+                      <span *ngIf="lineup.away_pitcher_fantasy.fanduel_salary === null">N/A</span>
+                    </span>
+                    <span class="salary-stat yahoo-salary" [hidden]="!yahooActionActive">
+                      <span *ngIf="lineup.away_pitcher_fantasy.yahoo_salary !== null">{{lineup.away_pitcher_fantasy.yahoo_salary | currency:'USD':true:'2.0-0'}}</span>
+                      <span *ngIf="lineup.away_pitcher_fantasy.yahoo_salary === null">N/A</span>
+                    </span>
+                  </td>
+                  <!-- Pitcher Projected Points -->
+                  <td class="proj-points-stat-wrapper">
+                    <span class="points-stat draft-kings-points" [hidden]="!draftKingsActionActive">
+                      <span *ngIf="lineup.away_pitcher_fantasy.fantasy_points_draft_kings !== null">{{lineup.away_pitcher_fantasy.fantasy_points_draft_kings}} pts</span>
+                      <span *ngIf="lineup.away_pitcher_fantasy.fantasy_points_draft_kings === null">N/A</span>
+                    </span>
+                    <span class="points-stat fan-duel-points" [hidden]="!fanDuelActionActive">
+                      <span *ngIf="lineup.away_pitcher_fantasy.fantasy_points_fan_duel !== null">{{lineup.away_pitcher_fantasy.fantasy_points_fan_duel}} pts</span>
+                      <span *ngIf="lineup.away_pitcher_fantasy.fantasy_points_fan_duel === null">N/A</span>
+                    </span>
+                    <span class="points-stat yahoo-points" [hidden]="!yahooActionActive">
+                      <span *ngIf="lineup.away_pitcher_fantasy.fantasy_points_yahoo !== null">{{lineup.away_pitcher_fantasy.fantasy_points_yahoo}} pts</span>
+                      <span *ngIf="lineup.away_pitcher_fantasy.fantasy_points_yahoo === null">N/A</span>
+                    </span>
+                  </td>
+                  <!-- Pitcher Own Percentage -->
+                  <td class="own-stat-wrapper">
+                    <span class="own-stat">N/A</span>
+                  </td>
+                </tr>
+                </tbody>
+              </table> <!-- End Pitchers Table -->
+              <!-- Away Team Lineup Data-->
+              <div class="lineup-data-btn-wrapper">
+                <button (click)="onAwayLineupData(lineup.away_team_id)" class="btn lineup-data-btn">Away Lineup Data <img src="/assets/images/white-right-arrow.png" /></button>
+              </div>
+            </div>
+            <!-- Home Participant Stats (Right)-->
+            <div class="home-participant-stats">
+              <table class="table hitter-table">
+                <thead class="stats-head">
+                <tr>
+                  <th class="stat-align-left hitters-stat-col">Hitters</th>
+                  <th>Salary</th>
+                  <th>Proj</th>
+                  <th>Own</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Table Rows -->
+                <tr *ngFor="let hitter of lineup.home_team.hitters" class="lineups-gateway-table-row">
+                  <th class="hitter-data">
+                    <!-- TODO: Find out what the (R) / (S) field means from PSD -->
+                    <span class="hitter-text">
+                      {{hitter.batting_order}}. {{hitter.name}}, {{hitter.position}} (*)
+                    </span>
+                  </th>
+                  <!-- Hitter Salary Stat -->
+                  <td class="salary-stat-wrapper">
+                    <span class="salary-stat draft-kings-salary" [hidden]="!draftKingsActionActive">
+                      <span *ngIf="hitter.draft_kings_salary !== null">{{hitter.draft_kings_salary | currency:'USD':true:'4.0-0'}}</span>
+                      <span *ngIf="hitter.draft_kings_salary === null">N/A</span>
+                    </span>
+                    <span class="salary-stat fan-duel-salary" [hidden]="!fanDuelActionActive">
+                      <span *ngIf="hitter.fan_duel_salary !== null">{{hitter.fan_duel_salary | currency:'USD':true:'4.0-0'}}</span>
+                      <span *ngIf="hitter.fan_duel_salary === null">N/A</span>
+                    </span>
+                    <span class="salary-stat yahoo-salary" [hidden]="!yahooActionActive">
+                      <span *ngIf="hitter.yahoo_salary !== null">{{hitter.yahoo_salary | currency:'USD':true:'2.0-0'}}</span>
+                      <span *ngIf="hitter.yahoo_salary === null">N/A</span>
+                    </span>
+                  </td>
+                  <!-- Hitter Points Stat -->
+                  <td class="points-stat-wrapper">
+                    <span class="points-stat draft-kings-points" [hidden]="!draftKingsActionActive">
+                      <span *ngIf="hitter.fantasy_points_draft_kings !== null">{{hitter.fantasy_points_draft_kings}} pts</span>
+                      <span *ngIf="hitter.fantasy_points_draft_kings === null">N/A</span>
+                    </span>
+                    <span class="points-stat fan-duel-points" [hidden]="!fanDuelActionActive">
+                      <span *ngIf="hitter.fantasy_points_fan_duel !== null">{{hitter.fantasy_points_fan_duel}} pts</span>
+                      <span *ngIf="hitter.fantasy_points_fan_duel === null">N/A</span>
+                    </span>
+                    <span class="points-stat yahoo-points" [hidden]="!yahooActionActive">
+                      <span *ngIf="hitter.fantasy_points_yahoo !== null">{{hitter.fantasy_points_yahoo}} pts</span>
+                      <span *ngIf="hitter.fantasy_points_yahoo === null">N/A</span>
+                    </span>
+                  </td>
+                  <!-- Hitter Own Percentage -->
+                  <td>
+                    <!-- TODO: Find out actual Own value-->
+                    00%
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <!-- Pitcher Table -->
+              <table class="table pitcher-table">
+                <thead class="stats-head">
+                <tr>
+                  <th class="stat-align-left hitters-stat-col">Pitchers</th>
+                  <th>Salary</th>
+                  <th>Proj</th>
+                  <th>Own</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Table Rows -->
+                <tr class="lineups-gateway-table-row">
+                  <th class="pitcher-data">
+                    <!-- TODO: Find out what the (R) / (S) field means from PSD -->
+                    <span class="pitcher-text">
+                      <span class="pitcher-name">{{lineup.home_team_starting_pitcher}}</span>
+                      <span class="pitcher-bat-hand">({{lineup.home_team.pitcher.bat_hand}})</span>,
+                      <span class="pitcher-win-loss-record">0-0</span>
+                    </span>
+                  </th>
+                  <!-- Pitcher Salary -->
+                  <td class="salary-stat-wrapper">
+                    <span class="salary-stat draft-kings-salary" [hidden]="!draftKingsActionActive">
+                      <span *ngIf="lineup.home_pitcher_fantasy.draft_kings_salary !== null">{{lineup.home_pitcher_fantasy.draft_kings_salary | currency:'USD':true:'4.0-0'}}</span>
+                      <span *ngIf="lineup.home_pitcher_fantasy.draft_kings_salary === null">N/A</span>
+                    </span>
+                    <span class="salary-stat fan-duel-salary" [hidden]="!fanDuelActionActive">
+                      <span *ngIf="lineup.home_pitcher_fantasy.fanduel_salary !== null">{{lineup.home_pitcher_fantasy.fanduel_salary | currency:'USD':true:'4.0-0'}}</span>
+                      <span *ngIf="lineup.home_pitcher_fantasy.fanduel_salary === null">N/A</span>
+                    </span>
+                    <span class="salary-stat yahoo-salary" [hidden]="!yahooActionActive">
+                      <span *ngIf="lineup.home_pitcher_fantasy.yahoo_salary !== null">{{lineup.home_pitcher_fantasy.yahoo_salary | currency:'USD':true:'2.0-0'}}</span>
+                      <span *ngIf="lineup.home_pitcher_fantasy.yahoo_salary === null">N/A</span>
+                    </span>
+                  </td>
+                  <!-- Pitcher Projected Points -->
+                  <td class="proj-points-stat-wrapper">
+                    <span class="points-stat draft-kings-points" [hidden]="!draftKingsActionActive">
+                      <span *ngIf="lineup.home_pitcher_fantasy.fantasy_points_draft_kings !== null">{{lineup.home_pitcher_fantasy.fantasy_points_draft_kings}} pts</span>
+                      <span *ngIf="lineup.home_pitcher_fantasy.fantasy_points_draft_kings === null">N/A</span>
+                    </span>
+                    <span class="points-stat fan-duel-points" [hidden]="!fanDuelActionActive">
+                      <span *ngIf="lineup.home_pitcher_fantasy.fantasy_points_fan_duel !== null">{{lineup.home_pitcher_fantasy.fantasy_points_fan_duel}} pts</span>
+                      <span *ngIf="lineup.home_pitcher_fantasy.fantasy_points_fan_duel === null">N/A</span>
+                    </span>
+                    <span class="points-stat yahoo-points" [hidden]="!yahooActionActive">
+                      <span *ngIf="lineup.home_pitcher_fantasy.fantasy_points_yahoo !== null">{{lineup.home_pitcher_fantasy.fantasy_points_yahoo}} pts</span>
+                      <span *ngIf="lineup.home_pitcher_fantasy.fantasy_points_yahoo === null">N/A</span>
+                    </span>
+                  </td>
+                  <!-- Pitcher Own Percentage -->
+                  <td class="own-stat-wrapper">
+                    <span class="own-stat">N/A</span>
+                  </td>
+                </tr>
+                </tbody>
+              </table> <!-- End Pitchers Table -->
+              <!-- Home Team Lineup Data-->
+              <div class="lineup-data-btn-wrapper">
+                <button (click)="onHomeLineupData(lineup.home_team_id)" class="btn lineup-data-btn">Home Lineup Data <img src="/assets/images/white-right-arrow.png" /></button>
+              </div>
+            </div>
+          </div>
+          <!-- Event Lineup Footer -->
+          <div class="event-lineup-footer">
+            <div class="event-lineup-footer-row">
+              <div class="lineup-foot-stat-col">
+                <h6 class="foot-stat-title">Moneyline</h6>
+                <p class="foot-stat-value">{{lineup.home_team.abbr}}
+                  <span *ngIf="lineup.point_spread_away_team_money_line < 0">{{lineup.point_spread_away_team_money_line}}</span>
+                  <span *ngIf="lineup.point_spread_away_team_money_line > 0">+{{lineup.point_spread_away_team_money_line}}</span>
+                </p>
+                <p class="foot-stat-value">{{lineup.away_team.abbr}}
+                  <span *ngIf="lineup.point_spread_home_team_money_line < 0">{{lineup.point_spread_home_team_money_line}}</span>
+                  <span *ngIf="lineup.point_spread_home_team_money_line > 0">+ {{lineup.point_spread_home_team_money_line}}</span>
+                </p>
+              </div>
+              <!-- TODO: Figure out Runs Data -->
+              <div class="lineup-foot-stat-col center">
+                <h6 class="foot-stat-title">Runs</h6>
+                <p class="foot-stat-value">{{lineup.home_team.abbr}}
+                  <span *ngIf="lineup.point_spread_away_team_money_line < 0">+1.5 ({{lineup.point_spread_away_team_money_line}})</span>
+                  <span *ngIf="lineup.point_spread_away_team_money_line > 0">-1.5 (+{{lineup.point_spread_away_team_money_line}})</span>
+                </p>
+                <p class="foot-stat-value">{{lineup.away_team.abbr}}
+                  <span *ngIf="lineup.point_spread_home_team_money_line < 0">+1.5 ({{lineup.point_spread_home_team_money_line}})</span>
+                  <span *ngIf="lineup.point_spread_home_team_money_line > 0">-1.5(+{{lineup.point_spread_home_team_money_line}})</span>
+                </p>
+              </div>
+              <!-- TODO: Figure out Over/Under Data-->
+              <div class="lineup-foot-stat-col">
+                <h6 class="foot-stat-title">Over/Under</h6>
+                <p class="foot-stat-value">
+                  <span>{{lineup.over_under}} (000)</span>
+                </p>
+                <p class="foot-stat-value">
+                  <span>{{lineup.over_under}} (000)</span>
+                </p>
+              </div>
+            </div>
+            <button (click)="onMatchOddsLineMovement()" class="btn match-odds-and-line">Match Odds & Line Movement <img src="/assets/images/white-right-arrow.png"></button>
+          </div>
+        </div> <!-- End Lineup Box -->
+      </div> <!-- End Lineups Loop -->
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { ScorebarService } from '../services';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'layout-scorebar',
@@ -22,7 +23,7 @@ export class ScorebarComponent implements OnInit{
     );
   }
 
-  slideConfig = {"slidesToShow": 4, "slidesToScroll": 4};
+  slideConfig = {"slidesToShow": 12, "slidesToScroll": 4};
 
 
 }
