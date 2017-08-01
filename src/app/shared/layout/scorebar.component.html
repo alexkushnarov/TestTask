@@ -1,41 +1,87 @@
-<div id="scorebar-container">
-
-
-      <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)">
-        <div class="row">
-          <div class="col">
-            asdsad
+<div id="scorebar-container" class="row">
+  <div class="col-sm-5ths container-row">
+    <div class="row align-items-center scorebarSides">
+      <div class="col-11 justify-content-center">
+        <div ngbDropdown class="d-inline-block text-center justify-content-center w-100">
+          <button class="btn btn-outline-primary align-middle scorebarButtons" ngbDropdownToggle>MLB</button>
+          <div class="dropdown-menu" aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item">NFL</button>
+            <button class="dropdown-item">NBA</button>
+            <button class="dropdown-item">NHL</button>
           </div>
-        <div ngxSlickItem *ngFor="let game of scorebar" class="slide">
-          <div class="col">
+        </div>
+      </div>
+      <div class="col-1 p-0 arrows">
+        <img src="http://res.cloudinary.com/dvtp41gsb/image/upload/v1501546576/scorebar-prev-arrow_f8rc2i.png" (click)="scorebarCarousel.prev()">
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-four5ths container-row">
+    <ngb-carousel #scorebarCarousel="ngbCarousel">
+      <ng-template ngbSlide>
+        <div class="col-1 team_stats game-box" *ngFor="let game of scorebar| slice:0:showAmount">
+          <div class="row">
+            <div class="col">
+              <span class="game-time"> {{ game.date_time | date:'shortTime' }} </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <span>{{ game.away_team }}</span>
+            </div>
+            <div class="col-sm-8 text-right">
+              <span class="team_record">{{ game.away_wins }} - {{ game.away_losses }}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <span>{{ game.home_team }}</span>
+            </div>
+            <div class="col-sm-8 text-right">
+              <span class="team_record">{{ game.home_wins }} - {{ game.home_losses }}</span>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <div *ngIf="gameLength > showAmount">
+        <ng-template ngbSlide>
+          <div class="col-1 team_stats game-box" *ngFor="let game of scorebar| slice:showAmount:gameLength">
             <div class="row">
               <div class="col">
-                <span class="team_stats"> {{ game.date_time | date:'shortTime' }} </span>
+                <span class="game-time"> {{ game.date_time | date:'shortTime' }} </span>
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-6">
-                <span class="team_stats">{{ game.away_team.abbr }}</span>
+              <div class="col-sm-4">
+                <span>{{ game.away_team }}</span>
               </div>
-              <div class="col-sm-6">
-                <span class="team_stats">{{ game.away_team.wins }} - {{ game.away_team.losses }}</span>
+              <div class="col-sm-8 text-right">
+                <span>{{ game.away_wins }} - {{ game.away_losses }}</span>
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-6">
-                <span class="team_stats">{{ game.home_team.abbr }}</span>
+              <div class="col-sm-4">
+                <span>{{ game.home_team }}</span>
               </div>
-              <div class="col-sm-6">
-                <span class="team_stats">{{ game.home_team.wins }} - {{ game.home_team.losses }}</span>
+              <div class="col-sm-8 text-right">
+                <span class="team-record">{{ game.home_wins }} - {{ game.home_losses }}</span>
               </div>
             </div>
           </div>
-        </div>
-          <div class="col">
-            asdsad
-          </div>
-        </div>
-      </ngx-slick>
+        </ng-template>
+      </div>
+    </ngb-carousel>
+  </div>
+  <div class="col-sm-5ths container-row">
+    <div class="row align-items-center scorebarSides">
+      <div class="col-1 p-0 arrows" (click)="scorebarCarousel.next()">
+        <img src="http://res.cloudinary.com/dvtp41gsb/image/upload/v1501546576/scorebar-next-arrow_eq9jcg.png">
+      </div>
+      <div class="col-11">
+        <button class="btn btn-outline-primary align-middle scorebarButtons">See All</button>
 
+      </div>
+    </div>
+  </div>
 
 </div>

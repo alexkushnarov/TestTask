@@ -22,7 +22,7 @@ export class LineupsGatewayService {
   mlbStartingLineups() {
     const headers = new Headers();
     const options = new RequestOptions({ headers: headers });
-    const endpoint = `${environment.api_url}/mlb/fetch/matchups/lineups`;
+    const endpoint = `${environment.api_url}/mlb/fetch/lineups/gateway`;
     return this.http.get(endpoint, options)
       .map(this.extractData)
       .map((response: any) => {

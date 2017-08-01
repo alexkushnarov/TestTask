@@ -1,9 +1,157 @@
+* {
+  font-family: 'Lato';
+}
+
 #scorebar-container {
   background: #fff;
-  height: 5.5rem;
+  height: 4.125rem;
 }
+
 /* You can add global styles to this file, and also import other style files */
 .team_stats {
-  font-family: 'Lato', 'Arial', sans-serif;
-  font-size: 0.5rem;
+  font-size: 0.6875rem;
+}
+
+.team_record {
+  opacity: 0.75;
+}
+
+.game-box {
+  border-left: 1px solid #ebebec;
+}
+
+.game-time {
+  font-weight: bold;
+}
+
+.scorebarSides {
+  height: 100%;
+  display: flex;;
+}
+
+#see-all {
+  height: 100%;
+  background-color: #01afed;
+  color: white;
+  font-weight: bold;
+  padding: 0.8rem;
+  border-radius: 5px;
+}
+
+.container-row {
+  padding: 0.6875rem;
+}
+
+.arrows {
+  cursor: pointer;
+}
+.scorebarButtons {
+  background-color: #01afed;
+  color: white;
+  border: 1px #ebebec;
+  border-radius: 2px;
+  font-weight: bold;
+}
+/deep/ .carousel-control-prev, /deep/ .carousel-control-next, /deep/ .carousel-indicators {
+  display: none;
+}
+
+.col-xs-5ths, .col-sm-5ths, .col-md-5ths, .col-lg-5ths, .col-xl-5ths,
+.col-xs-two5ths, .col-sm-two5ths, .col-md-two5ths, .col-lg-two5ths, .col-xl-two5ths,
+.col-xs-three5ths, .col-sm-three5ths, .col-md-three5ths, .col-lg-three5ths, .col-xl-three5ths,
+.col-xs-four5ths, .col-sm-four5ths, .col-md-four5ths, .col-lg-four5ths, .col-xl-four5ths,
+.col-xs-five5ths, .col-sm-five5ths, .col-md-five5ths, .col-lg-five5ths, .col-xl-five5ths
+{
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 576px) {
+  .col-sm-5ths {
+    width: 10%;
+    float: left;
+  }
+
+  .col-sm-two5ths {
+    width: 40%;
+    float: left;
+  }
+
+  .col-sm-three5ths {
+    width: 60%;
+    float: left;
+  }
+
+  .col-sm-four5ths {
+    width: 80%;
+    float: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .col-md-5ths {
+    width: 10%;
+    float: left;
+  }
+
+  .col-md-two5ths {
+    width: 40%;
+    float: left;
+  }
+
+  .col-md-three5ths {
+    width: 60%;
+    float: left;
+  }
+
+  .col-md-four5ths {
+    width: 80%;
+    float: left;
+  }
+}
+
+@media (min-width: 992px) {
+  .col-lg-5ths {
+    width: 10%;
+    float: left;
+  }
+
+  .col-lg-two5ths {
+    width: 40%;
+    float: left;
+  }
+
+  .col-lg-three5ths {
+    width: 60%;
+    float: left;
+  }
+
+  .col-lg-four5ths {
+    width: 80%;
+    float: left;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-xl-5ths {
+    width: 10%;
+    float: left;
+  }
+
+  .col-xl-two5ths {
+    width: 40%;
+    float: left;
+  }
+
+  .col-xl-three5ths {
+    width: 60%;
+    float: left;
+  }
+
+  .col-xl-four5ths {
+    width: 80%;
+    float: left;
+  }
 }

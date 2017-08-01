@@ -10,7 +10,6 @@ import { MlbModule } from './mlb/mlb.module';
 
 import { ProfileModule } from './profile/profile.module';
 import { SettingsModule } from './settings/settings.module';
-import { SlickModule } from 'ngx-slick';
 import { Logger } from 'angular2-logger/core';
 import {
   ApiService,
@@ -45,7 +44,6 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     SharedModule,
     SettingsModule,
     NgbModule.forRoot(),
-    SlickModule.forRoot(),
     MlbModule
   ],
   providers: [

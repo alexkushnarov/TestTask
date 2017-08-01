@@ -23,7 +23,7 @@ export class ScorebarService {
   getAll() {
     const headers = new Headers();
     const options = new RequestOptions({ headers: headers });
-    const endpoint = `${environment.api_url}/mlb/fetch/matchups/lineups`;
+    const endpoint = `${environment.api_url}/mlb/fetch/scorebar`;
     return this.http.get(endpoint, options)
       .map(this.extractData)
       .map((response: any) => {

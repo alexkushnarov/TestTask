@@ -1,10 +1,11 @@
 footer {
   background: #01afed;
-  height: 5rem;
+  height: 10.88rem;
 }
 * {
-  font-family: 'Raleway SemiBold', sans-serif;
+  font-family: 'Lato';
   font-size: 1rem;
+  font-weight: bold;
   color: white;
 }
 .navbar-nav .nav-link {
@@ -16,4 +17,10 @@ footer {
 .social-icons {
   height: 1rem;
   padding: 0.1rem;
+}
+
+#nav-logo {
+  height: 1.375rem;
+  padding-top: 0;
+  padding-bottom: 0;
 }
