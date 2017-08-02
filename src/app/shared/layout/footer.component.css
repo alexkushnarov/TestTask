@@ -1,0 +1,19 @@
+footer {
+  background: #01afed;
+  height: 5rem;
+}
+* {
+  font-family: 'Raleway SemiBold', sans-serif;
+  font-size: 1rem;
+  color: white;
+}
+.navbar-nav .nav-link {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 50px;
+  line-height: 50px;
+}
+.social-icons {
+  height: 1rem;
+  padding: 0.1rem;
+}

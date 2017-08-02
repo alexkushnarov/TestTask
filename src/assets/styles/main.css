@@ -1,0 +1,830 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, a, span, button, p, li, table {
+  font-family: 'Lato', 'Arial', sans-serif;
+}
+
+body {
+  background: #FFF;
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
+  transition: ease all 0.12s;
+}
+
+.dark-purple {
+  background-color: #4e4e6a;
+  color: #FFF;
+}
+
+.dark-purple:hover {
+  background-color: #36344b;
+}
+
+.light-gray {
+  background-color: #f0f0f1;
+  color: #333333;
+}
+
+.light-gray:hover {
+  background: #dbdbdc;
+}
+
+.content {
+  width: 100%;
+}
+
+.page-wrap {
+  display: block;
+  padding: 0 17px;
+}
+
+/* Starting Lineups Component */
+
+.starting-lineups-heading-wrap {
+  width: 100%;
+  margin-bottom: 28px;
+  margin-top: 70px;
+}
+
+.starting-lineups-heading-wrap h1 {
+  color: rgb(51, 51, 51);
+  font-weight: 700;
+}
+
+.starting-lineups-action-header {
+  width: inherit;
+  height: 84px;
+  background-color: #FFF;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.13);
+  padding: 0 11px;
+  margin: auto;
+  margin-bottom: 39px;
+}
+
+/* Starting Lineups Loader */
+.starting-lineup-loader {
+  width: 85px;
+  display: block;
+  margin: 0 auto;
+  min-height: 400px;
+  margin-top: 80px;
+}
+
+.loader-image {
+  width: 85px;
+}
+
+/* Action Header Buttons */
+.starting-lineups-action-header .action-header-btn {
+  min-width: 96px;
+  height: 37px;
+  margin-top: 22px;
+  float: left;
+  background-color: #FFF;
+  color: rgba(51, 51, 51, 1);
+  border: 2px solid rgb(194, 194, 194);
+  transition: ease all 130ms;
+  outline: none;
+  font-size: 13px;
+  display: inline-block;
+  padding: 0 7px;
+  border-right: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.starting-lineups-action-header .action-header-btn.first {
+  border-right: none;
+}
+
+.starting-lineups-action-header .action-header-btn.last {
+  border-right: 2px solid rgb(194, 194, 194);
+}
+
+.starting-lineups-action-header .action-header-btn:hover {
+  background-color: #e0e0e4;
+  border-color: #bebec7;
+  color: rgb(51, 51, 51);
+}
+
+.starting-lineups-action-header .action-header-btn.active {
+  background-color: rgb(138, 138, 156);
+  border-color: rgb(138, 138, 156);
+  color: #FFF;
+}
+
+/* Action Header Button Groups */
+.action-btn-group {
+  margin-left: 48px;
+}
+
+.action-btn-group.group-1 {
+  margin-left: 0;
+}
+
+/* Starting Lineups Results */
+.starting-lineup-box {
+  width: 49%;
+  height: 928px;
+  float: left;
+  background: #FFF;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.13);
+  transition: ease-in all 0.12s;
+  margin-bottom: 56px;
+}
+
+.starting-lineup-box.center {
+  float: none;
+  clear: both;
+  margin: 0 auto;
+  margin-bottom: 56px;
+}
+
+.starting-lineup-box.right {
+  float: right;
+}
+
+.starting-lineup-box:hover {
+  box-shadow: 0 4px 23px rgba(0, 0, 0, 0.22);
+}
+
+.starting-lineup-box-head {
+  width: 100%;
+}
+
+.starting-lineup-box-head .event-top-info {
+  height: 105px;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.event-top-info .event-time {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+
+/* Event Wind (MLB) */
+.event-wind.mlb {
+  width: 25%;
+  height: 113px;
+  float: left;
+  position: relative;
+}
+
+.event-wind.mlb .event-wind-content {
+  text-align: center;
+  font-weight: 800;
+  position: relative;
+  top: 45px;
+  font-size: 14px;
+  z-index: 1;
+}
+
+.event-wind-content .wind-speed {
+  display: block;
+}
+
+.event-wind-content .wind-direction-arrow {
+  transform: rotate(0deg);
+}
+
+.event-wind.mlb .mlb-diamond-icon {
+  width: 136px;
+  margin: auto;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 0;
+}
+
+.event-participants {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.event-risk {
+  margin-top: 1px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.event-top-participants {
+  height: 125px;
+}
+
+/* Event Away Participant */
+.event-away-participant {
+  width: 37%;
+  float: left;
+  text-align: right;
+}
+
+.away-participant-content {
+  display: inline-block;
+  text-align: right;
+}
+
+.event-top-participant-name {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.event-top-participant-standing {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.away-participant-logo {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.event-away-participant .event-top-logo {
+  width: 60px;
+  height: 60px;
+  float: right;
+}
+
+/* Event Home Participant */
+.event-home-participant {
+  width: 37%;
+  float: left;
+  text-align: left;
+}
+
+.home-participant-content {
+  display: inline-block;
+}
+
+.home-participant-logo {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.event-home-participant .event-top-logo {
+  width: 60px;
+  height: 60px;
+  float: left;
+}
+
+.event-participant-logo {
+  position: relative;
+  top: -18px;
+}
+
+.lineup-state {
+  font-weight: 800;
+  font-size: 17px;
+  margin-top: 3px;
+}
+
+.lineup-state img {
+  position: relative;
+  top: -2px;
+}
+
+.lineup-state.confirmed {
+  color: rgb(43, 182, 115);
+}
+
+.lineup-state.projected {
+  color: #be1e2d;
+}
+
+/* Event (Middle of Event Lineup) Stats */
+.event-mid-stats {
+  width: 100%;
+  height: 498px;
+  border-top: 1px solid rgb(51, 51, 51);
+  border-bottom: 1px solid rgb(51, 51, 51);
+}
+
+.away-participant-stats {
+  width: 50%;
+  float: left;
+  border-right: 1px solid rgb(51, 51, 51);
+}
+
+.home-participant-stats {
+  width: 50%;
+  float: right;
+}
+
+thead.stats-head {
+  height: 28px;
+  background: rgb(235, 235, 236);
+}
+
+thead.stats-head tr {
+  max-height: 28px;
+}
+
+thead.stats-head th {
+  padding: 2px 10px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+thead.stats-head th.stat-align-left {
+  text-align: left;
+}
+
+th.hitters-stat-col {
+  width: 40%;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.hitter-data {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.starting-lineups-table-row {
+  font-size: 13px;
+  height: 35px;
+  font-weight: 600;
+}
+
+.starting-lineups-table-row th.hitter-data {
+  text-align: left;
+  font-weight: 600;
+}
+
+.starting-lineups-table-row span {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.starting-lineups-table-row td {
+  text-align: center;
+}
+
+.starting-lineups-table-row th,
+.starting-lineups-table-row td {
+  padding: 6px 9px;
+}
+
+.table-row-wrapper {
+  width: 100%;
+  display: block;
+}
+
+.starting-lineups-table-row:nth-child(odd) {
+  background: rgb(250, 250, 250);
+}
+
+.table.pitcher-table {
+  margin-top: 24px;
+}
+
+.lineup-data-btn-wrapper {
+  background: rgb(250, 250, 250);
+  padding: 19px 0;
+  border-bottom: 1px solid rgb(51, 51, 51);
+}
+
+.btn.lineup-data-btn {
+  background: rgb(78, 78, 106);
+  max-width: 186px;
+  height: 37px;
+  color: #FFF;
+  font-weight: 700;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+  line-height: 14px;
+  border-radius: 0;
+}
+
+.btn.lineup-data-btn:hover {
+  background: rgb(68, 68, 96)
+}
+
+.btn.lineup-data-btn img {
+  width: 6px;
+  margin-left: 6px;
+  position: relative;
+  top: -1px;
+}
+
+.event-lineup-footer-row {
+  width: 78%;
+  margin: auto;
+}
+
+.lineup-foot-stat-col {
+  float: left;
+  width: 33.333%;
+  height: 100px;
+  padding-top: 25px;
+}
+
+.lineup-foot-stat-col .foot-stat-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.lineup-foot-stat-col .foot-stat-value {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.btn.match-odds-and-line {
+  border-radius: 0;
+  text-align: center;
+  margin: auto;
+  display: block;
+  background: rgb(102, 102, 102);
+  color: #FFF;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn.match-odds-and-line:hover {
+  background: rgb(89, 92, 95);
+}
+
+.btn.match-odds-and-line img {
+  width: 6px;
+  margin-left: 6px;
+  position: relative;
+  top: -1px;
+}
+
+/*
+  -------------------------------------
+  | Team Lineup                       |
+  | [mlb > team-lineup.component.ts]  |
+  -------------------------------------
+*/
+
+.team-lineup.content {
+  padding-bottom: 60px;
+}
+
+.team-lineup-heading-wrap {
+  position: relative;
+  display: block;
+  padding-left: 0;
+}
+
+.team-logo {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  display: inline-block;
+  margin-right: 14px;
+  top: -12px;
+}
+
+.team-logo.preload {
+  background-image: linear-gradient(45deg, #eee, #e1e4e8);
+  border-radius: 4px;
+  top: -4px;
+}
+
+.team-logo img {
+  max-height: 46px;
+}
+
+.team-heading-info {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.team-heading-info.preload {
+  height: 60px;
+  width: inherit;
+}
+
+.team-name.preload {
+  background-image: linear-gradient(45deg, #eee, #e1e4e8);
+  height: 30px;
+  width: inherit;
+  border-radius: 4px;
+}
+
+.team-meta-info.preload {
+  width: 40%;
+  background-image: linear-gradient(45deg, #eee, #e1e4e8);
+  height: 13px;
+  border-radius: 4px;
+}
+
+.team-name {
+  color: #333;
+  font-size: 27px;
+  margin-bottom: 0;
+}
+
+.team-meta-info {
+  font-size: 15px;
+}
+
+.team-heading-lineup-state {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 20px;
+  margin-top: 3px;
+}
+
+.team-lineup-heading-left {
+  width: 73%;
+  float: left;
+}
+
+.team-lineup-heading-right {
+  width: 27%;
+  float: right;
+}
+
+.opponent-team-name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.event-date {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.team-lineup-heading-text {
+  width: 100%;
+  display: block;
+}
+
+.page-heading-navigation.team-lineup-heading-navigation {
+  clear: both;
+  width: 100%;
+  height: 55px;
+  background: #fafafa;
+  border-top: 2px solid #ebebec;
+  margin-top: 26px;
+  margin-bottom: 40px;
+}
+
+.page-heading-navigation.team-lineup-heading-navigation .page-heading-nav-btn {
+  width: 14.2857%;
+  border: none;
+  height: 100%;
+  border-bottom: 2px solid #ebebec;
+}
+
+.page-heading-navigation .page-heading-nav-btn {
+  margin: 0;
+  background: none;
+  float: left;
+  outline: none;
+  font-size: 15px;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.page-heading-navigation .page-heading-nav-btn:hover {
+  border-bottom: 2px solid #c5d4d7;
+}
+
+.page-heading-navigation .page-heading-nav-btn.active {
+  border-bottom: 2px solid #00aeef;
+  color: #00aeef;
+}
+
+.team-lineup-heading-actions {
+  clear: both;
+  width: 100%;
+  margin-top: 30px;
+  height: 40px;
+  /*background: #e0e0e4;*/
+}
+
+.heading-action-cta-wrapper {
+  float: right;
+  width: 140px;
+  height: 100%;
+}
+
+.heading-action-cta-btn {
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 16px;
+  border-radius: 3px;
+}
+
+.heading-action-cta-btn img {
+  width: 16px;
+  position: relative;
+  top: -2px;
+}
+
+.heading-actions-btn-group {
+  border-color: #ebebec;
+  box-shadow: 0 6px 14px rgba(119, 119, 119, 0.12);
+  border-radius: 5px;
+}
+
+.heading-btn-group-btn {
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 0;
+}
+
+.heading-btn-group-btn.first-btn {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-right: 0;
+}
+
+.heading-btn-group-btn.last-btn {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-left: 0;
+}
+
+.heading-btn-group-btn:after {
+  content: none;
+}
+
+.btn img.down-arrow {
+  width: 10px;
+}
+
+/* Team Lineups Content */
+.team-lineup-contents {
+  clear: both;
+  width: 100%;
+}
+
+.page-heading-two {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 24px 0;
+}
+
+.page-heading-two.fluid-heading {
+  display: inline-block;
+}
+
+.page-heading-right-dropdown {
+  display: inline-block;
+  float: right;
+  margin-top: 24px;
+}
+
+button.page-heading-dropdown {
+  width: 105px;
+  box-shadow: 0 3px 14px rgba(57, 68, 76, 0.11);
+}
+
+button.page-heading-dropdown img.down-arrow {
+  float: right;
+  display: block;
+  margin-top: 8px;
+}
+
+.page-heading-right-dropdown .page-heading-dropdown::after {
+  content: none;
+}
+
+.page-heading-right-dropdown .dropdown-menu {
+  left: -54px;
+}
+
+.stats-table thead {
+  background: #ebebec;
+}
+
+.stats-table th,
+.stats-table td,
+.col-table th,
+.col-table td {
+  font-size: 12px;
+  text-align: center;
+}
+
+.stats-table .player-name-col {
+  text-align: left;
+  width: 16%;
+  padding-left: 16px;
+}
+
+/* Stats Table Styling */
+.stats-table td {
+  padding: 6px 7px;
+}
+
+.stats-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.stats-table thead th,
+.stats-table thead td {
+  padding: 5px 2px;
+}
+
+table.table-text-left td,
+table.table-text-left th {
+  text-align: left;
+}
+
+/* Table Rating Stat Styling */
+span.rating {
+  padding: 4px 9px;
+  background-color: #e2e5e8;
+  font-weight: 800;
+  border-radius: 2px;
+  color: #5b5f63;
+}
+
+span.rating.yellow {
+  background-color: rgba(237, 190, 1, 0.15);
+  color: #cfa602;
+}
+
+span.rating.green {
+  color: #2bb673;
+  background-color: rgba(43, 182, 115, 0.15);
+}
+
+span.rating.red {
+  color: #b31842;
+  background-color: rgba(206, 152, 150, 0.49);
+}
+
+/* Stats Column Table Styling */
+
+.stats-col-table {
+  width: 100%;
+}
+
+.stats-col-table thead {
+  background: #ebebec;
+}
+
+.col-table-inner-table {
+  width: 100%;
+}
+
+.col-table-inner-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.stats-col-table .col-table-inner-table td,
+.stats-col-table .col-table-inner-table th {
+  padding: 6px 25px 6px;
+}
+
+.col-table-first {
+  border-right: 0;
+}
+
+/* Team Lineup Page Stats Custom Styles */
+
+.bullpen-pitcher-table {
+  margin-top: 28px;
+}
+
+.bench-hitters-table {
+  margin-top: 28px;
+}
+
+.stats-table td.player-position {
+  font-weight: 700;
+}
+
+.btn.bullpen {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 10px;
+  height: 28px;
+  width: 108px;
+  margin-top: 10px;
+}
+
+.starting-hitters-data {
+  margin-top: 38px;
+}
+
+.starting-lineups-table-row:nth-child(odd) {
+  background: rgb(250, 250, 250);
+}
+
