@@ -16,15 +16,95 @@ export class TeamLineupComponent implements OnInit, OnDestroy {
   private routeSubscription: Subscription;
   teamNameParam: string;
   teamLineup: any;
-  // Lineups Stat Table Button States
-  bullpenTableActive = false;
-  benchTableActive = false;
   // Lineups Tab Button States
   currentTeamTabActive: boolean;
   opposingTeamTabActive: boolean;
   currentTeamIsHome: boolean;
   // Page Year Values
   activeYear: number;
+  // Header Area Btn Groups
+  btnGroupOneCurrentValue: any;
+  btnGroupTwoCurrentValue: any;
+  btnGroupThreeCurrentValue: any;
+  btnGroupOneOpts = [
+    {
+      label: 'Stats',
+      id: 1
+    },
+    {
+      label: 'Fantasy',
+      id: 2
+    }
+  ];
+  btnGroupTwoOpts = [
+    {
+      label: 'Average',
+      id: 1
+    },
+    {
+      label: 'Base Model',
+      id: 2
+    },
+    {
+      label: 'Logistic Regression',
+      id: 3
+    },
+    {
+      label: 'Random Forest',
+      id: 4
+    },
+    {
+      label: 'Naive Bayes',
+      id: 5
+    },
+    {
+      label: 'Nearest Neighbors',
+      id: 6
+    },
+    {
+      label: 'ML Consensus',
+      id: 7
+    }
+  ];
+
+  btnGroupThreeOpts = [
+    {
+      label: 'Last 10',
+      id: 1
+    },
+    {
+      label: 'Last 30',
+      id: 2
+    },
+    {
+      label: 'Last 60',
+      id: 3
+    },
+    {
+      label: '1 Year',
+      id: 4
+    },
+    {
+      label: 'All Time',
+      id: 5
+    },
+    {
+      label: 'BvP',
+      id: 6
+    },
+    {
+      label: 'Advanced Stats',
+      id: 7
+    },
+    {
+      label: 'Home/Away',
+      id: 8
+    },
+    {
+      label: 'L/R',
+      id: 9
+    }
+  ];
 
   constructor(
     private teamLineupService: TeamLineupService,
@@ -32,6 +112,10 @@ export class TeamLineupComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private titleService: Title
   ) {
+    // Set Dropdown Values
+    this.btnGroupOneCurrentValue = this.btnGroupOneOpts[0];
+    this.btnGroupTwoCurrentValue = this.btnGroupTwoOpts[0];
+    this.btnGroupThreeCurrentValue = this.btnGroupThreeOpts[0];
     // Make Subscription to the Active Route
     this.routeSubscription = this.activatedRoute.params.subscribe(params => {
       // Set Router Param Dependent Values
@@ -73,24 +157,6 @@ export class TeamLineupComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.routeSubscription.unsubscribe();
-  }
-
-  // UI Functions
-  // --------------
-  /**
-   *  Open/Close Bullpen Table - onOpenBullpenTable()
-   *  -----------------------------------------------
-   */
-  onOpenBullpenTable() {
-    this.bullpenTableActive = !this.bullpenTableActive;
-  }
-
-  /**
-   *  Open/Close Bullpen Table - onOpenBullpenTable()
-   *  -----------------------------------------------
-   */
-  onOpenBenchTable() {
-    this.benchTableActive = !this.benchTableActive;
   }
 
   /**
@@ -145,4 +211,15 @@ export class TeamLineupComponent implements OnInit, OnDestroy {
       });
   }
 
+  onSelectBtnGroupOneOpt(opt) {
+    this.btnGroupOneCurrentValue = opt;
+  }
+
+  onSelectBtnGroupTwoOpt(opt) {
+    this.btnGroupTwoCurrentValue = opt;
+  }
+
+  onSelectBtnGroupThreeOpt(opt) {
+    this.btnGroupThreeCurrentValue = opt;
+  }
 }

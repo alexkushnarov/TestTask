@@ -78,26 +78,32 @@
         <div class="heading-actions-btn-group team-lineup-heading-btn-group btn-group">
           <div ngbDropdown class="dropdown">
             <button type="button" class="heading-btn-group-btn btn btn-secondary first-btn" id="stats-dropdown" ngbDropdownToggle>
-              <span>Stats</span> <img class="down-arrow" src="/assets/images/arrow-down.png" />
+              <span>{{btnGroupOneCurrentValue.label}}</span> <img class="down-arrow" src="/assets/images/arrow-down.png" />
             </button>
             <div class="dropdown-menu" aria-labelledby="stats-dropdown">
-              <a class="dropdown-item">Action</a>
+              <div *ngFor="let opt of btnGroupOneOpts"  class="dropdown-btn-wrap">
+                <a (click)="onSelectBtnGroupOneOpt(opt)" class="dropdown-item">{{opt.label}}</a>
+              </div>
             </div>
           </div>
           <div ngbDropdown class="dropdown">
             <button type="button" class="heading-btn-group-btn btn btn-secondary" id="avg-dropdown" ngbDropdownToggle>
-              <span>Average</span> <img class="down-arrow" src="/assets/images/arrow-down.png" />
+              <span>{{btnGroupTwoCurrentValue.label}}</span> <img class="down-arrow" src="/assets/images/arrow-down.png" />
             </button>
             <div class="dropdown-menu" aria-labelledby="avg-dropdown">
-              <a class="dropdown-item">Action</a>
+              <div *ngFor="let opt of btnGroupTwoOpts"  class="dropdown-btn-wrap">
+                <a (click)="onSelectBtnGroupTwoOpt(opt)" class="dropdown-item">{{opt.label}}</a>
+              </div>
             </div>
           </div>
           <div ngbDropdown class="dropdown">
             <button type="button" class="heading-btn-group-btn btn btn-secondary last-btn" id="season-dropdown" ngbDropdownToggle>
-              <span>Season</span> <img class="down-arrow" src="/assets/images/arrow-down.png" />
+              <span>{{btnGroupThreeCurrentValue.label}}</span> <img class="down-arrow" src="/assets/images/arrow-down.png" />
             </button>
             <div class="dropdown-menu" aria-labelledby="season-dropdown">
-              <a class="dropdown-item">Action</a>
+              <div *ngFor="let opt of btnGroupThreeOpts"  class="dropdown-btn-wrap">
+                <a (click)="onSelectBtnGroupThreeOpt(opt)" class="dropdown-item">{{opt.label}}</a>
+              </div>
             </div>
           </div>
         </div>
