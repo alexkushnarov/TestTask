@@ -6,27 +6,28 @@ import 'rxjs/add/operator/map';
 import { environment } from 'environments/environment';
 
 @Injectable()
-export class LineupsGatewayService {
+export class TeamLineupService {
+  // currentTeamLineupData: any;
 
   constructor(
     private http: Http
   ) { }
 
   /**
-   *  MLB Starting Lineups - mlbStartingLineups
+   *  MLB Team Lineup - mlbTeamLineup
    *  -----------------------------------------
+   *  @query-param team
    *  @returns Observable<R>
-   *  Make a GET call to the /mlb/fetch/matchups/lineups API
-   *  endpoint and return the extracted response data.
+   *  Make a GET call to the /mlb/fetch/lineups/single?team=XXXXXX
+   *  API endpoint and return the extracted response data.
+   *  http://34.227.40.148/mlb/fetch/lineups/single?team=boston-red-sox
    */
-  mlbStartingLineups() {
+  mlbTeamLineup(teamNameValue, year) {
+    // TODO: Add a param for the service function for API query param
     const headers = new Headers();
     const options = new RequestOptions({ headers: headers });
-<<<<<<< HEAD
-    const endpoint = `${environment.api_url}/mlb/fetch/lineups/gateway`;
-=======
-    const endpoint = `${environment.api_url}/mlb/fetch/matchups/lineups`;
->>>>>>> team-lineups
+    const endpoint = `${environment.api_url}/mlb/fetch/lineups/single?team=${teamNameValue}&year=${year}`;
+    // const endpoint = 'https://api.myjson.com/bins/pghy9';
     return this.http.get(endpoint, options)
       .map(this.extractData)
       .map((response: any) => {

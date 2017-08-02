@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
   font-family: 'Lato';
 }
@@ -154,4 +155,14 @@
     width: 80%;
     float: left;
   }
+=======
+#scorebar-container {
+  background: #fff;
+  height: 5.5rem;
+}
+/* You can add global styles to this file, and also import other style files */
+.team_stats {
+  font-family: 'Lato', 'Arial', sans-serif;
+  font-size: 0.5rem;
+>>>>>>> team-lineups
 }

@@ -1,0 +1,125 @@
+<!-- Starting Lineups Content -->
+<div class="team-lineup content">
+  <!-- Starting Lineup Box Loader -->
+  <div *ngIf="teamLineup === undefined" class="starting-lineup-loader">
+    <img class="loader-image" src="/assets/images/Ripple.svg">
+  </div>
+  <!-- Page Wrap -->
+  <div *ngIf="teamLineup !== undefined" class="page-wrap container-fluid">
+    <!-- Starting Lineups Page Title -->
+    <div class="team-lineup-heading-wrap col-md-8">
+      <!-- Team Lineup Heading Text-->
+      <div class="team-lineup-heading-text">
+        <!-- Team Lineup Heading Left -->
+        <div class="team-lineup-heading-left">
+          <div class="team-logo" [ngClass]="{'team-logo-loading': teamLineup?.team.logo_url === null}">
+            <img *ngIf="teamLineup?.team.logo_url !== null" [src]="teamLineup?.team.logo_url" />
+          </div>
+          <div class="team-heading-info">
+            <h1 class="page-heading team-name">{{teamLineup.team.current_game_info.team_full}} Lineup</h1>
+            <h4 class="page-subheading team-meta-info">
+              <span class="team-record">{{teamLineup.team.record.wins}}-{{teamLineup.team.record.losses}},</span>
+              <!-- Team Division Rank -->
+              <span class="team-division-rank">{{teamLineup.team.record.division_rank}}GB</span>
+              <span class="team-league-and-division"> in {{teamLineup.team.record.league}} {{teamLineup.team.record.division}}</span>
+            </h4>
+          </div>
+          <div class="team-heading-lineup-state participant-lineup-state">
+            <!-- Team Lineup State -->
+            <div *ngIf="teamLineup.team.current_game_info.batting_order_confirmed" class="confirmed-lineup">
+              <p class="lineup-state confirmed"><img src="/assets/images/green-check.png" /> Confirmed</p>
+            </div>
+            <div *ngIf="!teamLineup.team.current_game_info.batting_order_confirmed" class="projected-lineup">
+              <p class="lineup-state projected"><img src="/assets/images/red-x.png" /> Projected</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Lineup Heading Right -->
+        <div class="team-lineup-heading-right">
+          <h4 class="opponent-team-name">
+            <span *ngIf="teamLineup?.team.current_game_info.at_or_vs === 'at'" class="team-game-location">at</span>
+            <span *ngIf="teamLineup?.team.current_game_info.at_or_vs === 'vs'" class="team-game-location">vs</span>
+            <span class="opponent-team-name">{{teamLineup?.team.current_game_info.opp_full}}</span>
+          </h4>
+          <h4 class="event-date">{{teamLineup.team.current_game_info.game_time_dt | date:'jm'}} ({{teamLineup.team.current_game_info.game_time_dt | date:'MMM d'}})</h4>
+        </div>
+      </div>
+
+      <!-- Team Lineup Heading Navigation -->
+      <div class="page-heading-navigation team-lineup-heading-navigation">
+        <div class="home-team-tab tab-btn-wrap">
+          <a *ngIf="currentTeamIsHome" (click)="onSelectHomeTeam()" class="page-heading-nav-btn" [ngClass]="{'active': currentTeamTabActive}">{{teamLineup?.team.current_game_info.team_name}} Lineup</a>
+          <a *ngIf="!currentTeamIsHome" (click)="onSelectAwayTeam()" class="page-heading-nav-btn" [ngClass]="{'active': opposingTeamTabActive}">{{teamLineup?.team.current_game_info.opp_name}} Lineup</a>
+        </div>
+        <div class="away-team-tab tab-btn-wrap">
+          <a *ngIf="!currentTeamIsHome" (click)="onSelectAwayTeam()" class="page-heading-nav-btn" [ngClass]="{'active': currentTeamTabActive}">{{teamLineup?.team.current_game_info.team_name}} Lineup</a>
+          <a *ngIf="currentTeamIsHome" (click)="onSelectHomeTeam()" class="page-heading-nav-btn" [ngClass]="{'active': opposingTeamTabActive}">{{teamLineup?.team.current_game_info.opp_name}} Lineup</a>
+        </div>
+        <div class="tab-btn-wrap">
+          <a class="page-heading-nav-btn">Matchup</a>
+        </div>
+        <div class="tab-btn-wrap">
+          <a class="page-heading-nav-btn">News</a>
+        </div>
+        <div class="tab-btn-wrap">
+          <a class="page-heading-nav-btn">Data Mining</a>
+        </div>
+        <div class="tab-btn-wrap">
+          <a class="page-heading-nav-btn">Roster</a>
+        </div>
+        <div class="tab-btn-wrap">
+          <a class="page-heading-nav-btn">Schedule</a>
+        </div>
+      </div>
+
+      <!-- Team Lineup Heading Actions -->
+      <div class="heading-actions team-lineup-heading-actions">
+        <div class="heading-actions-btn-group team-lineup-heading-btn-group btn-group">
+          <div ngbDropdown class="dropdown">
+            <button type="button" class="heading-btn-group-btn btn btn-secondary first-btn" id="stats-dropdown" ngbDropdownToggle>
+              <span>Stats</span> <img class="down-arrow" src="/assets/images/arrow-down.png" />
+            </button>
+            <div class="dropdown-menu" aria-labelledby="stats-dropdown">
+              <a class="dropdown-item">Action</a>
+            </div>
+          </div>
+          <div ngbDropdown class="dropdown">
+            <button type="button" class="heading-btn-group-btn btn btn-secondary" id="avg-dropdown" ngbDropdownToggle>
+              <span>Average</span> <img class="down-arrow" src="/assets/images/arrow-down.png" />
+            </button>
+            <div class="dropdown-menu" aria-labelledby="avg-dropdown">
+              <a class="dropdown-item">Action</a>
+            </div>
+          </div>
+          <div ngbDropdown class="dropdown">
+            <button type="button" class="heading-btn-group-btn btn btn-secondary last-btn" id="season-dropdown" ngbDropdownToggle>
+              <span>Season</span> <img class="down-arrow" src="/assets/images/arrow-down.png" />
+            </button>
+            <div class="dropdown-menu" aria-labelledby="season-dropdown">
+              <a class="dropdown-item">Action</a>
+            </div>
+          </div>
+        </div>
+        <div class="heading-action-cta-wrapper">
+          <button class="heading-action-cta-btn dark-purple btn">
+            <img src="/assets/images/icon-video.png" /> How it works
+          </button>
+        </div>
+      </div>
+
+    </div> <!-- END: Team Lineup Heading Wrap -->
+
+    <!-- ROUTER OUTLET -->
+    <router-outlet></router-outlet>
+
+    <div *ngIf="opposingTeamTabActive" class="opposing-team-contents">
+      <!-- Starting Lineup -->
+      <div class="starting-lineup-section">
+        <div class="team-lineup-starting-header">
+          <h1 class="page-heading-two">Starting Lineup ** Opposing **</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
