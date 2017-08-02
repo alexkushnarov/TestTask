@@ -478,6 +478,7 @@ th.hitters-stat-col {
 
 .team-lineup.content {
   padding-bottom: 60px;
+  min-height: 700px;
 }
 
 .team-lineup-heading-wrap {
@@ -582,11 +583,25 @@ th.hitters-stat-col {
 }
 
 .page-heading-navigation.team-lineup-heading-navigation .page-heading-nav-btn {
-  width: 14.2857%;
+  width: 100%;
   border: none;
   height: 100%;
   border-bottom: 2px solid #ebebec;
+  text-align: center;
+  line-height: 46px;
 }
+
+.page-heading-navigation.team-lineup-heading-navigation .tab-btn-wrap {
+  height: 100%;
+  width: 14.2857%;
+  float: left;
+}
+
+.page-heading-navigation.team-lineup-heading-navigation .tab-btn-wrap a {
+  width: 100%;
+}
+
+
 
 .page-heading-navigation .page-heading-nav-btn {
   margin: 0;
@@ -606,6 +621,10 @@ th.hitters-stat-col {
 .page-heading-navigation .page-heading-nav-btn.active {
   border-bottom: 2px solid #00aeef;
   color: #00aeef;
+}
+
+.page-heading-navigation .page-heading-nav-btn.active:hover {
+  color: #058dbf;
 }
 
 .team-lineup-heading-actions {
@@ -828,3 +847,20 @@ span.rating.red {
   background: rgb(250, 250, 250);
 }
 
+a.dropdown-item {
+  transition: ease all 200ms;
+}
+
+a.dropdown-item.active-dropdown-value {
+  background: #00aeef;
+  color: #FFF;
+}
+
+a.dropdown-item.active-dropdown-value:hover {
+  color: #FFF;
+}
+
+a.dropdown-item:hover {
+  background-color: #c7eaf7;
+  color: #1b799c;
+}

@@ -4,7 +4,8 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LineupsGatewayComponent } from './lineups-gateway/lineups-gateway.component';
 import { TeamLineupComponent } from './team-lineup/team-lineup.component';
-
+import { CurrentTeamLineupComponent } from './team-lineup/current-team-lineup/current-team-lineup.component';
+import { MatchupsComponent } from './matchups/matchups.component';
 
 // Services
 import { LineupsGatewayService } from './lineups-gateway/lineups-gateway.service';
@@ -12,15 +13,20 @@ import { SlickModule } from 'ngx-slick';
 import { Logger } from 'angular2-logger/core';
 import { TeamLineupService } from './team-lineup/team-lineup.service';
 
-
 const mlbRouting: ModuleWithProviders = RouterModule.forChild([
   {
     path: 'mlb/lineups-gateway',
     component: LineupsGatewayComponent
   },
   {
-    path: 'mlb/team-lineup/:team_name',
-    component: TeamLineupComponent
+    path: 'mlb/lineups/:active_year/:team_name',
+    component: TeamLineupComponent,
+    children: [
+      {
+        path: '',
+        component: CurrentTeamLineupComponent
+      }
+    ]
   }
 ]);
 
@@ -28,7 +34,9 @@ const mlbRouting: ModuleWithProviders = RouterModule.forChild([
 @NgModule({
   declarations: [
     LineupsGatewayComponent,
-    TeamLineupComponent
+    TeamLineupComponent,
+    CurrentTeamLineupComponent,
+    MatchupsComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { environment } from 'environments/environment';
 
 @Injectable()
 export class TeamLineupService {
+  // currentTeamLineupData: any;
 
   constructor(
     private http: Http
@@ -19,13 +20,14 @@ export class TeamLineupService {
    *  @returns Observable<R>
    *  Make a GET call to the /mlb/fetch/lineups/single?team=XXXXXX
    *  API endpoint and return the extracted response data.
+   *  http://34.227.40.148/mlb/fetch/lineups/single?team=boston-red-sox
    */
-  mlbTeamLineup(teamNameValue) {
+  mlbTeamLineup(teamNameValue, year) {
     // TODO: Add a param for the service function for API query param
     const headers = new Headers();
     const options = new RequestOptions({ headers: headers });
-    // const endpoint = `${environment.api_url}/mlb/fetch/lineups/single?team=${teamNameValue}`;
-    const endpoint = 'https://api.myjson.com/bins/pghy9';
+    const endpoint = `${environment.api_url}/mlb/fetch/lineups/single?team=${teamNameValue}&year=${year}`;
+    // const endpoint = 'https://api.myjson.com/bins/pghy9';
     return this.http.get(endpoint, options)
       .map(this.extractData)
       .map((response: any) => {

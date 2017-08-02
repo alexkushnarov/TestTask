@@ -47,6 +47,6 @@ export class HomeComponent implements OnInit {
 
   // Navigate to Team and pass team name for API request
   onNavigateToTeamLineup(teamName) {
-    this.router.navigate(['/mlb/team-lineup', teamName]);
+    this.router.navigate(['/mlb/lineups/2017/', teamName]);
   }
 }
