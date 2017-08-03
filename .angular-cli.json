@@ -19,12 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-<<<<<<< HEAD
-        "styles.css"
-=======
         "styles.css",
         "assets/styles/main.css"
->>>>>>> team-lineups
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

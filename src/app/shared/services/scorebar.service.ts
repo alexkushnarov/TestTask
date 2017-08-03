@@ -23,11 +23,7 @@ export class ScorebarService {
   getAll() {
     const headers = new Headers();
     const options = new RequestOptions({ headers: headers });
-<<<<<<< HEAD
     const endpoint = `${environment.api_url}/mlb/fetch/scorebar`;
-=======
-    const endpoint = `${environment.api_url}/mlb/fetch/matchups/lineups`;
->>>>>>> team-lineups
     return this.http.get(endpoint, options)
       .map(this.extractData)
       .map((response: any) => {
@@ -57,6 +53,4 @@ export class ScorebarService {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
-
-
 }

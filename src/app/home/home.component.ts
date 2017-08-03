@@ -9,36 +9,26 @@ import { ArticleListConfig, UserService } from '../shared';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-<<<<<<< HEAD
-  constructor(
-    private router: Router,
-    private userService: UserService
-  ) {}
 
-=======
+
   staticTeamName = 'boston-red-sox';
->>>>>>> team-lineups
   isAuthenticated: boolean;
   listConfig: ArticleListConfig = new ArticleListConfig();
   tags: Array<string> = [];
   tagsLoaded = false;
 
-<<<<<<< HEAD
-=======
+
   constructor(
     private router: Router,
     private userService: UserService
   ) {}
 
->>>>>>> team-lineups
+
   ngOnInit() {
     this.userService.isAuthenticated.subscribe(
       (authenticated) => {
         this.isAuthenticated = authenticated;
-<<<<<<< HEAD
 
-=======
->>>>>>> team-lineups
         // set the article list accordingly
         if (authenticated) {
           this.setListTo('feed');
@@ -59,12 +49,10 @@ export class HomeComponent implements OnInit {
     // Otherwise, set the list object
     this.listConfig = {type: type, filters: filters};
   }
-<<<<<<< HEAD
-=======
+
 
   // Navigate to Team and pass team name for API request
   onNavigateToTeamLineup(teamName) {
     this.router.navigate(['/mlb/lineups/2017/', teamName]);
   }
->>>>>>> team-lineups
 }

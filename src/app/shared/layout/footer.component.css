@@ -1,19 +1,11 @@
 footer {
   background: #01afed;
-<<<<<<< HEAD
   height: 10.88rem;
 }
 * {
   font-family: 'Lato';
   font-size: 1rem;
   font-weight: bold;
-=======
-  height: 5rem;
-}
-* {
-  font-family: 'Raleway SemiBold', sans-serif;
-  font-size: 1rem;
->>>>>>> team-lineups
   color: white;
 }
 .navbar-nav .nav-link {
@@ -26,12 +18,9 @@ footer {
   height: 1rem;
   padding: 0.1rem;
 }
-<<<<<<< HEAD
 
 #nav-logo {
   height: 1.375rem;
   padding-top: 0;
   padding-bottom: 0;
 }
-=======
->>>>>>> team-lineups
