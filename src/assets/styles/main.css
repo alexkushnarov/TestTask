@@ -824,6 +824,20 @@ span.rating.red {
   width: 100%;
 }
 
+.col-table-bordered.col-table-bordered {
+  border-left: 1px solid #ebebec;
+  border-bottom: 1px solid #ebebec;
+}
+
+.col-table-bordered.col-table-bordered tr,
+.col-table-bordered.col-table-bordered td {
+  border-bottom: 1px solid #ebebec;
+}
+
+.col-table-bordered.col-table-bordered.col-table-last {
+  border-right: 1px solid #ebebec;
+}
+
 .col-table-inner-table tr:nth-child(even) {
   background-color: #fafafa;
 }

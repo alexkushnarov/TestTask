@@ -13,6 +13,9 @@ export class CurrentTeamLineupComponent implements OnInit, OnDestroy {
   private routeSubscription: Subscription;
   teamLineup: any;
   teamNameValue: string;
+  // Lineups Stat Table Button States
+  bullpenTableActive = false;
+  benchTableActive = false;
   // Page Year Values
   yearOptions: number[] = [];
   currentYear: number = new Date().getFullYear();
@@ -51,6 +54,24 @@ export class CurrentTeamLineupComponent implements OnInit, OnDestroy {
     this.activeYear = selectedYear;
     this.router.navigateByUrl(`/mlb/lineups/${this.activeYear}/${this.teamNameValue}`);
     // TODO: Make new api request
+  }
+
+  // UI Functions
+  // --------------
+  /**
+   *  Open/Close Bullpen Table - onOpenBullpenTable()
+   *  -----------------------------------------------
+   */
+  onOpenBullpenTable() {
+    this.bullpenTableActive = !this.bullpenTableActive;
+  }
+
+  /**
+   *  Open/Close Bullpen Table - onOpenBullpenTable()
+   *  -----------------------------------------------
+   */
+  onOpenBenchTable() {
+    this.benchTableActive = !this.benchTableActive;
   }
 
 }
