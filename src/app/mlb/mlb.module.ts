@@ -6,6 +6,7 @@ import { LineupsGatewayComponent } from './lineups-gateway/lineups-gateway.compo
 import { TeamLineupComponent } from './team-lineup/team-lineup.component';
 import { CurrentTeamLineupComponent } from './team-lineup/current-team-lineup/current-team-lineup.component';
 import { MatchupsComponent } from './matchups/matchups.component';
+import { ScheduleGatewayComponent } from './schedule-gateway/schedule-gateway.component';
 
 
 // Services
@@ -27,8 +28,11 @@ const mlbRouting: ModuleWithProviders = RouterModule.forChild([
         component: CurrentTeamLineupComponent
       }
     ]
-
-  }
+  },
+  {
+    path: 'mlb/schedule',
+    component: ScheduleGatewayComponent
+  },
 ]);
 
 
