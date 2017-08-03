@@ -13,6 +13,7 @@ import { ScheduleGatewayComponent } from './schedule-gateway/schedule-gateway.co
 import { LineupsGatewayService } from './lineups-gateway/lineups-gateway.service';
 import { Logger } from 'angular2-logger/core';
 import { TeamLineupService } from './team-lineup/team-lineup.service';
+import {ScheduleGatewayService} from "./schedule-gateway/schedule-gateway.service";
 
 const mlbRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -41,7 +42,8 @@ const mlbRouting: ModuleWithProviders = RouterModule.forChild([
     LineupsGatewayComponent,
     TeamLineupComponent,
     CurrentTeamLineupComponent,
-    MatchupsComponent
+    MatchupsComponent,
+    ScheduleGatewayComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ const mlbRouting: ModuleWithProviders = RouterModule.forChild([
   providers: [
     Logger,
     LineupsGatewayService,
-    TeamLineupService
+    TeamLineupService,
+    ScheduleGatewayService
   ]
 })
 export class MlbModule { }
