@@ -7,6 +7,9 @@ import { TeamLineupComponent } from './team-lineup/team-lineup.component';
 import { CurrentTeamLineupComponent } from './team-lineup/current-team-lineup/current-team-lineup.component';
 import { MatchupsComponent } from './matchups/matchups.component';
 import { ScheduleGatewayComponent } from './schedule-gateway/schedule-gateway.component';
+import { BetPredictorComponent } from './bet-predictor/bet-predictor.component';
+import { GamePredictorComponent } from './game-predictor/game-predictor.component';
+import { BetMetricsComponent } from './bet-metrics/bet-metrics.component';
 
 
 // Services
@@ -14,6 +17,7 @@ import { LineupsGatewayService } from './lineups-gateway/lineups-gateway.service
 import { Logger } from 'angular2-logger/core';
 import { TeamLineupService } from './team-lineup/team-lineup.service';
 import {ScheduleGatewayService} from "./schedule-gateway/schedule-gateway.service";
+import {BetMetricsService} from "./bet-metrics/bet-metrics.service";
 
 const mlbRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -34,6 +38,10 @@ const mlbRouting: ModuleWithProviders = RouterModule.forChild([
     path: 'mlb/schedule',
     component: ScheduleGatewayComponent
   },
+  {
+    path: 'mlb/bet-metrics',
+    component: BetMetricsComponent
+  },
 ]);
 
 
@@ -43,7 +51,10 @@ const mlbRouting: ModuleWithProviders = RouterModule.forChild([
     TeamLineupComponent,
     CurrentTeamLineupComponent,
     MatchupsComponent,
-    ScheduleGatewayComponent
+    ScheduleGatewayComponent,
+    BetMetricsComponent,
+    BetPredictorComponent,
+    GamePredictorComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +65,8 @@ const mlbRouting: ModuleWithProviders = RouterModule.forChild([
     Logger,
     LineupsGatewayService,
     TeamLineupService,
-    ScheduleGatewayService
+    ScheduleGatewayService,
+    BetMetricsService
   ]
 })
 export class MlbModule { }

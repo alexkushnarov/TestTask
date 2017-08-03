@@ -4,16 +4,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 import { HomeComponent } from './home.component';
-import { HomeAuthResolver } from './home-auth-resolver.service';
 import { SharedModule } from '../shared';
 
 const homeRouting: ModuleWithProviders = RouterModule.forChild([
   {
     path: '',
-    component: HomeComponent,
-    resolve: {
-      isAuthenticated: HomeAuthResolver
-    }
+    component: HomeComponent
   }
 ]);
 
@@ -27,7 +23,6 @@ const homeRouting: ModuleWithProviders = RouterModule.forChild([
     HomeComponent
   ],
   providers: [
-    HomeAuthResolver
   ]
 })
 export class HomeModule {}

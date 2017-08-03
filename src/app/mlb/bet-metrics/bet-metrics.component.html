@@ -1,0 +1,11 @@
+<div class="bet-stats">
+  {{ betMetrics.win_pct }}
+  {{ betMetrics.lose_pct }}
+  {{ betMetrics.profit }}
+</div>
+<div *ngFor="let bet of betMetrics.bets;">
+  {{ bet.outcome }}
+  {{ bet.win }}
+  {{ bet.profit }}
+  {{ bet.odds }}
+</div>

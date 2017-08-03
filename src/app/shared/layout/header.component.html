@@ -48,7 +48,7 @@
         <a class="nav-link" href="#"><img src="http://res.cloudinary.com/dvtp41gsb/image/upload/v1501008185/YouTube-icon-full_color_aozuj6.png" class="social-icons img-fluid"></a>
       </li>
     </ul>
-    <ul *showAuthed="false"
+    <ul>
         class="nav navbar-nav pull-xs-right">
 
       <li class="nav-item">
@@ -69,36 +69,5 @@
 
     </ul>
 
-    <!-- Show this for logged in users -->
-    <ul *showAuthed="true"
-        class="nav navbar-nav pull-xs-right">
-
-      <li class="nav-item">
-        <a class="nav-link"
-           routerLink="/"
-           routerLinkActive="active"
-           [routerLinkActiveOptions]="{ exact: true }">
-          Home
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link"
-           routerLink="/settings"
-           routerLinkActive="active">
-          <i class="ion-gear-a"></i>&nbsp;Settings
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link"
-           [routerLink]="['/profile', currentUser.username]"
-           routerLinkActive="active">
-          <img [src]="currentUser.image" *ngIf="currentUser.image" class="user-pic" />
-          {{ currentUser.username }}
-        </a>
-      </li>
-
-    </ul>
   </div>
 </nav>
