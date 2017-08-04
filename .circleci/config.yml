@@ -20,8 +20,21 @@ jobs:
           name: angular-build
           command: yarn ng -- build --prod --aot --no-progress
       - run:
-          name: angular-test
-          command: yarn test -- --single-run --no-progress
-      - run:
           name: angular-lint
           command: yarn lint
+      - deploy:
+          name: S3 Bucket Deployment
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              aws s3 sync dist s3://lineupsdotcom/ --delete
+            else
+              echo "Non master branch not deploying to s3."
+            fi
+      - run:
+          name: Cloudfront Invalidation
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              aws cloudfront create-invalidation --cli-input-json "{\"DistributionId\":\"E2CAIO4776LUFJ\",\"InvalidationBatch\":{\"Paths\":{\"Quantity\":1,\"Items\":[\"/*\"]},\"CallerReference\":\"$(date +%s)\"}}"
+            else
+              echo "Non master branch not invaliding cloudfront distribution."
+            fi
