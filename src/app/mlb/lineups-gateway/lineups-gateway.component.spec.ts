@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StartingLineupsComponent } from './lineups-gateway.component';
+import { LineupsGatewayComponent } from './lineups-gateway.component';
 
-describe('StartingLineupsComponent', () => {
-  let component: StartingLineupsComponent;
-  let fixture: ComponentFixture<StartingLineupsComponent>;
+describe('LineupsGatewayComponent', () => {
+  let component: LineupsGatewayComponent;
+  let fixture: ComponentFixture<LineupsGatewayComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StartingLineupsComponent ]
+      declarations: [ LineupsGatewayComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StartingLineupsComponent);
+    fixture = TestBed.createComponent(LineupsGatewayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
