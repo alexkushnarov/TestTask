@@ -24,8 +24,8 @@ export class BetMetricsService {
     // TODO: Add a param for the service function for API query param
     const headers = new Headers();
     const options = new RequestOptions({headers: headers});
-    // const endpoint = `${environment.api_url}/mlb/bet_metrics?bet_type=${bet_type}&model=$\{model}&outcome=$\{outcome}&win_prob_max=$\{win_prob_max}&win_prob_min=$\{win_prob_min}&ev_max=$\{ev_max}&ev_min=$\{ev_min}&scale=$\{scale}&`;
-    const endpoint = 'https://api.myjson.com/bins/ix79t';
+    const endpoint = `${environment.api_url}/mlb/bet_metrics?bet_id=${bet_type}&model=${model}&outcome=${outcome}&win_prob_max=${win_prob_max}&win_prob_min=${win_prob_min}&ev_max=${ev_max}&ev_min=${ev_min}&scale=${scale}`;
+    // const endpoint = 'https://api.myjson.com/bins/ix79t';
     return this.http.get(endpoint, options)
       .map(this.extractData)
       .map((response: any) => {

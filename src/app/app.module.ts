@@ -17,7 +17,7 @@ import {
   ScorebarService,
 } from './shared';
 
-const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
+const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: false });
 
 @NgModule({
   declarations: [

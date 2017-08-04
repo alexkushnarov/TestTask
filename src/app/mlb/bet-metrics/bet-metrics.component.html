@@ -1,11 +1,58 @@
-<div class="bet-stats">
-  {{ betMetrics.win_pct }}
-  {{ betMetrics.lose_pct }}
-  {{ betMetrics.profit }}
-</div>
-<div *ngFor="let bet of betMetrics.bets;">
-  {{ bet.outcome }}
-  {{ bet.win }}
-  {{ bet.profit }}
-  {{ bet.odds }}
-</div>
+<ul class="list-group">
+  <li class="list-group-item">Bet Type: {{ bet_type }}</li>
+  <li class="list-group-item">Model: {{ model }}</li>
+  <li class="list-group-item">Outcome: {{ outcome }}</li>
+  <li class="list-group-item">Win Prob: {{ win_prob_max }}</li>
+  <li class="list-group-item">Win Prob: {{ win_prob_min }}</li>
+  <li class="list-group-item">EV Max: {{ ev_max }}</li>
+  <li class="list-group-item">EV Min: {{ ev_min }}</li>
+  <li class="list-group-item">Scale: {{ scale }}</li>
+</ul>
+<table class="table">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Win%</th>
+    <th>Lose%</th>
+    <th>Profit</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th scope="row">{{ length }}</th>
+    <td>{{ betMetrics.win_pct }}</td>
+    <td>{{ betMetrics.lose_pct }}</td>
+    <td>{{ betMetrics.profit }}</td>
+  </tr>
+  </tbody>
+</table>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Win%</th>
+      <th>Lose%</th>
+      <th>Outcome</th>
+      <th>bet</th>
+      <th>odds</th>
+      <th>ev</th>
+      <th>prediction</th>
+
+      <th>model_type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let bet of betMetrics.bets; let i = index;">
+      <th scope="row">{{ i }}</th>
+      <td>{{ bet.win_prob }}</td>
+      <td>{{ bet.lose_prob }}</td>
+      <td>{{ bet.outcome }}</td>
+      <td>{{ bet.bet }}</td>
+      <td>{{ bet.odds }}</td>
+      <td>{{ bet.ev }}</td>
+      <td>{{ bet.prediction }}</td>
+
+      <td>{{ bet.model_type }}</td>
+    </tr>
+  </tbody>
+</table>
