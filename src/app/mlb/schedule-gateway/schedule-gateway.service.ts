@@ -25,7 +25,7 @@ export class ScheduleGatewayService {
     // TODO: Add a param for the service function for API query param
     const headers = new Headers();
     const options = new RequestOptions({ headers: headers });
-    //const endpoint = `${environment.api_url}/mlb/fetch/schedule/gateway?date=${date}`;
+    // const endpoint = `${environment.api_url}/mlb/fetch/schedule/gateway?date=${date}`;
     const endpoint = 'https://api.myjson.com/bins/1f6ojl';
     return this.http.get(endpoint, options)
       .map(this.extractData)

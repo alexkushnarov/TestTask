@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 @Component({
-  selector: 'layout-header',
+  selector: 'app-layout-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })

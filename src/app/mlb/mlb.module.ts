@@ -1,23 +1,23 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { LineupsGatewayComponent } from './lineups-gateway/lineups-gateway.component';
-import { TeamLineupComponent } from './team-lineup/team-lineup.component';
-import { CurrentTeamLineupComponent } from './team-lineup/current-team-lineup/current-team-lineup.component';
-import { MatchupsComponent } from './matchups/matchups.component';
-import { ScheduleGatewayComponent } from './schedule-gateway/schedule-gateway.component';
-import { BetPredictorComponent } from './bet-predictor/bet-predictor.component';
-import { GamePredictorComponent } from './game-predictor/game-predictor.component';
-import { BetMetricsComponent } from './bet-metrics/bet-metrics.component';
+import {ModuleWithProviders, NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {RouterModule} from '@angular/router';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {LineupsGatewayComponent} from './lineups-gateway/lineups-gateway.component';
+import {TeamLineupComponent} from './team-lineup/team-lineup.component';
+import {CurrentTeamLineupComponent} from './team-lineup/current-team-lineup/current-team-lineup.component';
+import {MatchupsComponent} from './matchups/matchups.component';
+import {ScheduleGatewayComponent} from './schedule-gateway/schedule-gateway.component';
+import {BetPredictorComponent} from './bet-predictor/bet-predictor.component';
+import {GamePredictorComponent} from './game-predictor/game-predictor.component';
+import {BetMetricsComponent} from './bet-metrics/bet-metrics.component';
 
 
 // Services
-import { LineupsGatewayService } from './lineups-gateway/lineups-gateway.service';
-import { Logger } from 'angular2-logger/core';
-import { TeamLineupService } from './team-lineup/team-lineup.service';
-import {ScheduleGatewayService} from "./schedule-gateway/schedule-gateway.service";
-import {BetMetricsService} from "./bet-metrics/bet-metrics.service";
+import {LineupsGatewayService} from './lineups-gateway/lineups-gateway.service';
+import {Logger} from 'angular2-logger/core';
+import {TeamLineupService} from './team-lineup/team-lineup.service';
+import {ScheduleGatewayService} from './schedule-gateway/schedule-gateway.service';
+import {BetMetricsService} from './bet-metrics/bet-metrics.service';
 
 const mlbRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -69,4 +69,5 @@ const mlbRouting: ModuleWithProviders = RouterModule.forChild([
     BetMetricsService
   ]
 })
-export class MlbModule { }
+export class MlbModule {
+}

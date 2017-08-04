@@ -38,9 +38,13 @@ export class LineupsGatewayComponent implements OnInit {
       .subscribe(lineupsData => {
         this.lineups = lineupsData;
         this.lineups.sort((a, b) => {
-          if (a.date_time_epoch < b.date_time_epoch) return -1;
-          else if (a.date_time_epoch > b.date_time_epoch) return 1;
-          else return 0;
+          if (a.date_time_epoch < b.date_time_epoch) {
+            return -1;
+          }
+          if (a.date_time_epoch > b.date_time_epoch) {
+            return 1;
+          }
+          return 0;
         });
       });
   }

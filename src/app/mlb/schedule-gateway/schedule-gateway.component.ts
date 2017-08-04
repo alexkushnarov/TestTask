@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ScheduleGatewayService} from "./schedule-gateway.service";
-import {Subscription} from "rxjs/Subscription";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ScheduleGatewayService} from './schedule-gateway.service';
+import {Subscription} from 'rxjs/Subscription';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
@@ -24,7 +24,7 @@ export class ScheduleGatewayComponent implements OnInit, OnDestroy {
         this.date = params['date'];
       } else {
         const d = new Date();
-        this.date = d.getDay() + '-' +(d.getMonth() + 1)  + '-' + d.getFullYear();
+        this.date = d.getDay() + '-' + (d.getMonth() + 1)  + '-' + d.getFullYear();
       }
     });
 
