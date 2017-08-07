@@ -42,6 +42,10 @@ const mlbRouting: ModuleWithProviders = RouterModule.forChild([
     path: 'mlb/bet-metrics',
     component: BetMetricsComponent
   },
+  {
+    path: 'mlb/matchups',
+    component: MatchupsComponent
+  },
 ]);
 
 

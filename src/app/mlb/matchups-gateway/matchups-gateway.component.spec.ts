@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MatchupsComponent } from './matchups.component';
+import { MatchupsComponent } from './matchups-gateway.component';
 
 describe('MatchupsComponent', () => {
   let component: MatchupsComponent;
