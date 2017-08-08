@@ -12,7 +12,7 @@
               <span style="padding-right: 55px;">Showing {{getShowedValue()}} games</span>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMatchups">
-              <div (click)="onToggleItem($event, matchup)" class="dropdown-item" *ngFor="let matchup of matchups">
+              <div (click)="onToggleItem($event, matchup)" class="dropdown-item" *ngFor="let matchup of matchups | orderBy:'date_time'">
                 <div class="form-check" style="padding-left: 5px;">
                   <input [checked]="matchup.showed" class="form-check-input" type="checkbox">
                   <label>
