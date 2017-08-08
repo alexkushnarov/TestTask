@@ -1,0 +1,34 @@
+* {
+  font-family: 'Lato';
+}
+.content {
+  background: #fafafa;
+  padding: 0 16px;
+}
+.matchups-nav {
+  background: #ffffff;
+  border: 1px solid #ebebec;
+  border-radius: 0.25rem;
+  margin: 20px 0;
+}
+
+.matchups-nav .btn-group .btn {
+  border: none;
+  border-radius: 0;
+  border-right: 1px solid #ebebec;
+  font-weight: bold;
+}
+.matchups-nav .btn-group .btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.custom-dropdown .dropdown-toggle:after {
+  font-family: "FontAwesome";
+  content: "\f107";
+  border: none;
+  vertical-align: initial;
+  /*border-radius: 0;*/
+  /*border: none;*/
+  /*border-right: 1px solid transparent;*/
+}

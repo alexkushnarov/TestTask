@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PositivePipe } from './pipes/positive.pipe';
+import { OrderBy } from './pipes/order-by.pipe';
 
 @NgModule({
   imports: [
@@ -15,13 +17,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule
   ],
   declarations: [
+    PositivePipe,
+    OrderBy
   ],
   exports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule
+    RouterModule,
+    PositivePipe,
+    OrderBy
   ]
 })
 export class SharedModule {}

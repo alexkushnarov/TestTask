@@ -1,0 +1,71 @@
+.matchup {
+  border: 1px solid #cfcfd5;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.matchup-status {
+  font-size: 16px;
+  margin-left: 5px;
+}
+.matchup-status.confirmed {
+  color: #2bb673;
+}
+.matchup-status.rejected {
+  color: #e14747;
+}
+.matchup-stats-header span {
+  font-weight: bolder;
+}
+.matchup-stats-sub-header span {
+  font-weight: bold;
+  font-size: 12px;
+}
+.matchup-stats-content > .row {
+  height: 100px;
+}
+.matchup-header {
+  padding: 20px;
+}
+.logo {
+  width: 60px;
+  height: 60px;
+}
+h5 {
+  font-weight: bold;
+}
+p {
+  font-weight: lighter;
+  margin: 0;
+}
+.grey-bg {
+  background: #ebebec;
+}
+.light-grey-bg {
+  background: #f5f5f5;
+}
+.light-bg {
+  background: #ffffff;
+}
+.bordered-right {
+  border-right: 1px solid #cfcfd5;
+}
+.bordered-bottom {
+  border-bottom: 1px solid #cfcfd5;
+}
+.rating {
+  padding: 1px 8px;
+  border-radius: 2px;
+}
+.rating.rating-high {
+  background: #dff4ea;
+  color: #2bb673;
+}
+.rating.rating-average {
+  background: #fbf4de;
+  color: #e3b71f;
+}
+.rating.rating-low {
+  background: #ff5a5a;
+  color: #c73232;
+}

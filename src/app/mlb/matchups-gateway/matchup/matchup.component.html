@@ -1,0 +1,408 @@
+<div class="matchup">
+
+  <div class="matchup-header light-bg">
+    <div class="row">
+
+      <div class="col-4">
+        <div class="media">
+          <img class="d-flex mr-3 logo rounded" [src]="data.away_logo" alt="">
+          <div class="media-body">
+            <h5 class="mt-0">
+              {{data.away_team_full}}
+              <span class="matchup-status confirmed" *ngIf="data.away_lineup_confirmed">
+                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                Confirmed
+              </span>
+              <span class="matchup-status rejected" *ngIf="!data.away_lineup_confirmed">
+                <i class="fa fa-times-circle" aria-hidden="true"></i>
+                Projected
+              </span>
+            </h5>
+            <p>29-36, 4th in NL East</p>
+            <p>{{data.away_pitcher_name}} ({{data.away_pitcher_hand}}), {{data.away_pitcher_wins}}-{{data.away_pitcher_losses}}, {{data.away_pitcher_era | number : '1.2-2'}} ERA</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4 text-center">
+        <h5 class="mt-0">{{data.date_time | date:'shortTime'}}</h5>
+        <p>{{data.away_team_full}} @ {{data.home_team_full}}</p>
+        <p>{{data.rain}}% Rain, {{data.risk}}, Wind: {{data.forecast_wind_speed}} mph</p>
+      </div>
+
+      <div class="col-4">
+        <div class="media">
+          <img class="d-flex mr-3 logo rounded" [src]="data.home_logo" alt="">
+          <div class="media-body">
+            <h5 class="mt-0">
+              {{data.home_team_full}}
+              <span class="matchup-status confirmed" *ngIf="data.home_lineup_confirmed">
+                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                Confirmed
+              </span>
+              <span class="matchup-status rejected" *ngIf="!data.home_lineup_confirmed">
+                <i class="fa fa-times-circle" aria-hidden="true"></i>
+                Projected
+              </span>
+            </h5>
+            <p>29-36, 4th in NL East</p>
+            <p>{{data.home_pitcher_name}} ({{data.home_pitcher_hand}}), {{data.home_pitcher_wins}}-{{data.home_pitcher_losses}}, {{data.home_pitcher_era | number : '1.2-2'}} ERA</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="matchup-stats-header grey-bg container-fluid">
+    <div class="row">
+
+      <div class="col-4 text-center bordered-right">
+        <span>Game</span>
+      </div>
+
+      <div class="col-4 bordered-right">
+        <div class="row">
+
+          <div class="col-5 bordered-right">
+            <div class="row">
+              <div class="col-12 text-center">
+                <span>Team Totals</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-7 text-center">
+            <span>Over/Under</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-4 text-center">
+        <span>Moneyline</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="matchup-stats-sub-header light-grey-bg container-fluid">
+    <div class="row">
+
+      <div class="col-4 bordered-right">
+        <div class="row h-100">
+
+          <div class="col-6">
+            <span>Game</span>
+          </div>
+
+          <div class="col-3">
+            <span>Hitters Rating</span>
+          </div>
+
+          <div class="col-3">
+            <span>Pitchers Rating</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-4 bordered-right">
+        <div class="row h-100">
+
+          <div class="col-5 bordered-right">
+            <div class="row">
+
+              <div class="col-6 text-center">
+                <span>Open</span>
+              </div>
+
+              <div class="col-6 text-center">
+                <span>Live</span>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-7">
+            <div class="row">
+
+              <div class="col-6 text-center">
+                <span>Open</span>
+              </div>
+
+              <div class="col-6 text-center">
+                <span>Live</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="row h-100">
+
+          <div class="col-2 text-center">
+            <span>Open</span>
+          </div>
+
+          <div class="col-2 text-center">
+            <span>Live</span>
+          </div>
+
+          <div class="col-4 text-center">
+            <span>Line Movement</span>
+          </div>
+
+          <div class="col-4 text-center">
+            <span>Reverse Lines</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="matchup-stats-content light-bg container-fluid">
+    <div class="row">
+
+      <div class="col-2 bordered-right">
+        <div class="row h-100">
+
+          <div class="col-12">
+            <div class="row h-100 bordered-bottom">
+              <div class="col-12 my-auto">
+                {{data.home_team_full}}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="row h-100">
+              <div class="col-12 my-auto">
+                {{data.away_team_full}}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-2 bordered-right">
+        <div class="row h-100">
+
+          <div class="col-12">
+            <div class="row h-100 bordered-bottom">
+
+              <div class="col-6 bordered-right">
+                <div class="row h-100">
+                  <div class="col-12 my-auto text-center">
+                    <span [ngClass]="setColorRatingClass(data.home_hitter_rating)">{{data.home_hitter_rating}}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 my-auto text-center">
+                <span [ngClass]="setColorRatingClass(data.home_pitcher_rating)">{{data.home_pitcher_rating}}</span>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="row h-100">
+
+              <div class="col-6 bordered-right">
+                <div class="row h-100">
+                  <div class="col-12 my-auto text-center">
+                    <span [ngClass]="setColorRatingClass(data.away_hitter_rating)">{{data.away_hitter_rating}}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 my-auto text-center">
+                <span [ngClass]="setColorRatingClass(data.away_pitcher_rating)">{{data.away_pitcher_rating}}</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-4 bordered-right">
+        <div class="row h-100">
+
+          <div class="col-5 bordered-right">
+            <div class="row h-100">
+
+              <div class="col-12">
+                <div class="row h-100 bordered-bottom">
+
+                  <div class="col-6 bordered-right">
+                    <div class="row h-100">
+                      <div class="col-12 text-center my-auto">
+                        <span>{{data.home_team_total_open | number: '1.0-0'}}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="row h-100">
+                      <div class="col-12 text-center my-auto">
+                        <span>{{data.home_team_total_live | number: '1.0-0'}}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="row h-100">
+
+                  <div class="col-6 bordered-right">
+                    <div class="row h-100">
+                      <div class="col-12 text-center my-auto">
+                        <span>{{data.away_team_total_open | number: '1.0-0'}}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="row h-100">
+                      <div class="col-12 text-center my-auto">
+                        <span>{{data.away_team_total_live | number: '1.0-0'}}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-7">
+            <div class="row h-100">
+
+              <div class="col-6  bordered-right">
+                <div class="row h-100">
+                  <div class="col-12 text-center my-auto">
+                    <span>{{data.over_under}} runs</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 text-center my-auto">
+                <span>{{data.over_under_live}} runs</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="row h-100">
+
+          <div class="col-4">
+            <div class="row h-100">
+
+              <div class="col-12">
+                <div class="row h-100 bordered-bottom">
+                  <div class="col-6 bordered-right">
+                    <div class="row h-100">
+                      <div class="col-12 text-center my-auto">
+                        <span>{{data.home_team_money_line | positive}}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 bordered-right">
+                    <div class="row h-100">
+                      <div class="col-12 text-center my-auto">
+                        <span>{{data.home_team_money_line_live | positive}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="row h-100">
+                  <div class="col-6 bordered-right">
+                    <div class="row h-100">
+                      <div class="col-12 text-center my-auto">
+                        <span>{{data.away_team_money_line | positive}}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 bordered-right">
+                    <div class="row h-100">
+                      <div class="col-12 text-center my-auto">
+                        <span>{{data.away_team_money_line_live | positive}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div class="row h-100">
+
+              <div class="col-12" style="cursor: pointer" (click)="onLineClick()">
+                <div class="row h-100 bordered-bottom bordered-right">
+                  <div class="col-12 my-auto text-center">
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12" style="cursor: pointer" (click)="onLineClick()">
+                <div class="row h-100 bordered-right">
+                  <div class="col-12 my-auto text-center">
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div class="row h-100">
+
+              <div class="col-12">
+                <div class="row h-100 bordered-bottom">
+                  <div class="col-12 my-auto text-center">
+                    {{data.home_rlm ? 'Yes' : 'No'}}
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="row h-100">
+                  <div class="col-12 my-auto text-center">
+                    {{data.away_rlm ? 'Yes' : 'No'}}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+

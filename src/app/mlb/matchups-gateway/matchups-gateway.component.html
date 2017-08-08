@@ -1,0 +1,37 @@
+<div class="content">
+
+  <div class="matchups-nav">
+    <div class="row">
+      <div class="col">
+        <div class="btn-group">
+          <div ngbDropdown class="d-inline-block custom-dropdown">
+            <button class="btn btn-secondary" ngbDropdownToggle>Base Predictions</button>
+          </div>
+          <div *ngIf="matchups" ngbDropdown class="d-inline-block custom-dropdown">
+            <button class="btn btn-secondary" id="dropdownMatchups" ngbDropdownToggle>
+              <span style="padding-right: 55px;">Showing {{getShowedValue()}} games</span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMatchups">
+              <div (click)="onToggleItem($event, matchup)" class="dropdown-item" *ngFor="let matchup of matchups">
+                <div class="form-check" style="padding-left: 5px;">
+                  <input [checked]="matchup.showed" class="form-check-input" type="checkbox">
+                  <label>
+                    {{matchup.away_team}} - {{matchup.home_team}}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12" *ngIf="matchups">
+      <app-matchup *ngFor="let matchup of matchups | orderBy:'date_time'" [ngStyle]="{'display': matchup.showed ? 'block' : 'none'}" [data]="matchup"></app-matchup>
+    </div>
+  </div>
+
+</div>
+

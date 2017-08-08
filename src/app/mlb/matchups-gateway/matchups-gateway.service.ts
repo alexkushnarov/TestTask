@@ -6,15 +6,14 @@ import 'rxjs/add/operator/map';
 import { environment } from 'environments/environment';
 
 @Injectable()
-export class TeamLineupService {
+export class MatchupsGatewayService {
 
   constructor(
     private http: Http
   ) { }
 
 
-  mlbTeamLineup(teamNameValue, year) {
-    // TODO: Add a param for the service function for API query param
+  getTodayMatchups() {
     const headers = new Headers();
     const options = new RequestOptions({ headers: headers });
     const endpoint = `${environment.api_url}/mlb/fetch/matchups/today`;
