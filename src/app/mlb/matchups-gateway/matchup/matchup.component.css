@@ -4,9 +4,16 @@
   overflow: hidden;
   margin-bottom: 20px;
 }
+.matchup-table-container {
+  overflow-x: auto;
+}
+.matchup-table-content {
+  min-width: 1330px;
+}
 .matchup-status {
   font-size: 16px;
   margin-left: 5px;
+  white-space: nowrap;
 }
 .matchup-status.confirmed {
   color: #2bb673;

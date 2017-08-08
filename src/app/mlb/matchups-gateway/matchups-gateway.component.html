@@ -28,7 +28,7 @@
   </div>
 
   <div class="row">
-    <div class="col-12" *ngIf="matchups">
+    <div class="col-9" *ngIf="matchups">
       <app-matchup *ngFor="let matchup of matchups | orderBy:'date_time'" [ngStyle]="{'display': matchup.showed ? 'block' : 'none'}" [data]="matchup"></app-matchup>
     </div>
   </div>
